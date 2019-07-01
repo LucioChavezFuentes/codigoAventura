@@ -5,7 +5,7 @@ import Home from './Home/Home';
 import About from './About/About';
 import Contact from './Contact/Contact';
 import Error from './Error/Error';
-import './Body.css';
+import './Body.scss';
 
 
 const Body:React.FC = () => {

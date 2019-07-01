@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Home.css';
+import './Home.scss';
 import FormLogin from './FormLogin/FormLogin'
 
 const Home = () => {
