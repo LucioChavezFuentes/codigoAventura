@@ -20,6 +20,8 @@
 }
 
 .leftSection a {
+    color: rgb(0, 135, 197);
+    text-decoration: none;
     padding: 10px;
 }
 
