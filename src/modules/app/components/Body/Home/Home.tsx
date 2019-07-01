@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Home.scss';
-import FormLogin from './FormLogin/FormLogin'
+import FormLogin from '../FormLogin/FormLogin'
 
 const Home = () => {
 
