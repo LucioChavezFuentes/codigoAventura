@@ -3,6 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    position: relative;
+    top: 3rem;
 }
 
 .greeting {

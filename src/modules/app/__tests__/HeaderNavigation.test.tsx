@@ -8,7 +8,7 @@ import Body from '../components/Body/Body'
 
 afterEach(cleanup)
 
-const Header_Body_Navigation : React.FC = () => {
+const AppNavigation : React.FC = () => {
 
     return(
         <div>
@@ -42,7 +42,7 @@ function renderWithRouter(ui : any,
 }
 
 test('full app rendering/navigating', () => {
-  const { container, getByText } = renderWithRouter(<Header_Body_Navigation />)
+  const { container, getByText } = renderWithRouter(<AppNavigation />)
   // normally I'd use a data-testid, but just wanted to show this is also possible
   expect(getByText('Aprender a progrmar es más fácil de lo que crees.')).toBeTruthy()
   const leftClick = { button: 0 }
@@ -56,7 +56,7 @@ test('full app rendering/navigating', () => {
 })
 
 test('landing on a bad page', () => {
-  const { getByText } = renderWithRouter(<Header_Body_Navigation />, {
+  const { getByText } = renderWithRouter(<AppNavigation />, {
     route: '/something-that-does-not-match',
   })
   // normally I'd use a data-testid, but just wanted to show this is also possible

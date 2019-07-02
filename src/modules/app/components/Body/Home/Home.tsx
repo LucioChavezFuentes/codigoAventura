@@ -2,12 +2,15 @@ import React from 'react';
 
 import './Home.scss';
 import FormLogin from '../FormLogin/FormLogin'
+import Header from '../../Header/Header'
 
 const Home = () => {
 
     return (
         <div className='page'>
+            <Header inCourse={true} />
             <div className='home-page'> 
+            
 
                 <div className='greeting'>
                     <div>
