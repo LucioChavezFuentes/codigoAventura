@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import Body from '../components/Body/Body';
+import Body from '../Body';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 

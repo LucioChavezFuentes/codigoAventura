@@ -3,8 +3,8 @@ import {  Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
-import Header from '../components/Header/Header'
-import Body from '../components/Body/Body'
+import Header from '../utils/Header/Header'
+import Body from '../Body'
 
 afterEach(cleanup)
 
