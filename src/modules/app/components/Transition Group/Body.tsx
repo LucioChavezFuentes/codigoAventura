@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
-import Home from './Home/Home';
-import About from './About/About';
-import Contact from './Contact/Contact';
-import Error from './Error/Error';
+import Home from '../Routes/Home/Home';
+import About from '../Routes/About/About';
+import Contact from '../Routes/Contact/Contact';
+import Error from '../Routes/Error/Error';
 import './Body.scss';
 
 
