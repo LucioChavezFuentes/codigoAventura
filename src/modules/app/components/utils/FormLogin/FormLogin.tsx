@@ -1,12 +1,19 @@
 import React from 'react';
-import { Form} from 'react-bootstrap'
+import { Form, Button} from 'react-bootstrap'
+import './FormLogin.scss'
 
 const FormLogin = () => {
+    //ClassName fot Form.Label Component style is 'form-label'
+    //You can type 'className' in bootStrap components to style them.
     return (
+        <div>
     <Form>
         
         <Form.Group controlId="inputEmail">
-            <Form.Label>Email o Correo Electrónico</Form.Label>
+
+            
+            <Form.Label className='emailWord'>Email o Correo Electrónico</Form.Label>
+
             <Form.Control type="email" placeholder="Enter email" size='lg' />
 
             <Form.Text className="text-muted">
@@ -19,8 +26,15 @@ const FormLogin = () => {
             <Form.Label>Contraseña</Form.Label>
             <Form.Control type="password" placeholder="Password" size='lg' />
         </Form.Group>
+
+        <Button className='submit-btn' variant="primary" type='submit' block >
+                Submit
+        </Button>
+
     </Form>
-      
+
+
+</div>
     )
     
 }
