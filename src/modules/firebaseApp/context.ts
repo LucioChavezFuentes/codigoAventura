@@ -1,8 +1,8 @@
 import React from 'react';
-import firebase from './firebaseClass';
+import Firebase from './firebaseClass';
 
 
 
-const FirebaseContext = React.createContext<firebase | null>(null);
+const FirebaseContext = React.createContext<Firebase | null>(null);
 
 export default FirebaseContext;
