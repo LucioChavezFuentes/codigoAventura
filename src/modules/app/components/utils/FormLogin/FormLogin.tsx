@@ -17,16 +17,18 @@ interface State {
   email: string
   passwordOne: string 
   passwordTwo: string
+  validatedForm: boolean
   
   //TODO: investigate the type of error.
   error: any
 }
 
 const initialState = {
-
+  
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  validatedForm: false, 
   
   error: null,
 }
@@ -36,7 +38,14 @@ class FormLogin extends React.Component<Props, State>  {
 
     state : State = {...initialState}
 
-    handleSubmit = () => {
+    handleSubmit = (event: React.FormEvent<any>) => {
+        const form = event.currentTarget;
+        if( form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          this.setState({ validatedForm: true });   
 
     } 
 
@@ -56,27 +65,26 @@ class FormLogin extends React.Component<Props, State>  {
         const {email,
         passwordOne,
         passwordTwo,
-        error
+        error,
+        validatedForm
         
     } = this.state;
 
-    const isInvalid = passwordOne === '' || passwordTwo === '' || email === '';
+    const isBlank = passwordOne === '' || passwordTwo === '' || email === '';
 
     return (
         <div>
-    <Form onSubmit={this.handleSubmit}>
+    <Form onSubmit={this.handleSubmit} noValidate validated={validatedForm} className='formComponent'>
         
         <Form.Group controlId="inputEmail">
             <Form.Label className='emailWord'>Email o Correo Electrónico</Form.Label>
 
             <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} />
 
-            <Form.Text className="text-muted">
-                Jamas compartiríamos tu información con algo o alguién más.
-            </Form.Text>
+            
 
             <Form.Control.Feedback type='invalid'>
-                {}
+                {email === '' ? "Can't be blank" : "Please provide a valid email"}
             </Form.Control.Feedback>
         </Form.Group>
 
@@ -96,7 +104,7 @@ class FormLogin extends React.Component<Props, State>  {
 
 
 
-        <Button className='submit-btn' variant="primary" type='submit' block disabled={isInvalid} >
+        <Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank} >
                 Submit
         </Button>
 
