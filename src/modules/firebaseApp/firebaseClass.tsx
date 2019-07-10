@@ -21,7 +21,7 @@ class Firebase {
         
     }
 
-    doCreateUserWithEmailAndPassword = (email:string, password:string) => {
+    doCreateUserWithEmailAndPassword = (email:string, password:string) : any => {
       this.auth.createUserWithEmailAndPassword(email, password);
     }
     

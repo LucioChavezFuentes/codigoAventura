@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, FormControlProps} from 'react-bootstrap'
 
 import './FormLogin.scss'
-import Firebase from '../../../../firebaseApp' 
+import Firebase, {withFirebase} from '../../../../firebaseApp' 
 
 
 //TODO: make a dir of all interfaces needed in typescript.
@@ -18,7 +18,7 @@ interface State {
   passwordOne: string 
   passwordTwo: string
   validatedForm: boolean  
-  nonPasswordMatch: boolean | undefined
+  passwordMatch: boolean | undefined
 
   
   //TODO: investigate the type of error.
@@ -30,12 +30,14 @@ const initialState = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
-  validatedForm: false,
-  nonPasswordMatch: undefined,
+  validatedForm: false,  
+  passwordMatch: true,
   
   
   error: null,
 }
+
+
 
 
 class FormLogin extends React.Component<Props, State>  {
@@ -44,19 +46,38 @@ class FormLogin extends React.Component<Props, State>  {
 
     handleSubmit = (event: React.FormEvent<any>) => {
         const form = event.currentTarget;
-
-        if(this.state.passwordOne !== this.state.passwordTwo) {
-            this.setState({nonPasswordMatch: true})
-        } else {
-            this.setState({nonPasswordMatch: false})
-        }
+        const {passwordOne, passwordTwo, email} = this.state;
 
         if( form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-          }
 
-          this.setState({ validatedForm: true });    
+          } 
+
+          this.props.firebase!.doCreateUserWithEmailAndPassword(email, passwordOne).then((authUser : any)  => {
+            this.setState({ ...initialState });
+          })
+          .catch((error: any) => {
+            this.setState({ error });
+          });
+    
+        event.preventDefault();
+      ;
+
+        if(passwordOne === passwordTwo) {
+            this.setState({passwordMatch: true, validatedForm: true})
+            
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            this.setState({passwordMatch: false, validatedForm: false})
+            event.preventDefault();
+            event.stopPropagation();
+        }
+
+        
+
+          //this.setState({ validatedForm: true });    
 
     } 
 
@@ -78,7 +99,7 @@ class FormLogin extends React.Component<Props, State>  {
         passwordTwo,
         error,
         validatedForm, 
-        nonPasswordMatch
+        passwordMatch
         
     } = this.state;
 
@@ -92,12 +113,12 @@ class FormLogin extends React.Component<Props, State>  {
         <Form.Group controlId="inputEmail">
             <Form.Label className='emailWord'>Email o Correo Electrónico</Form.Label>
 
-            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange}  />
+            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} />
 
             
 
             <Form.Control.Feedback type='invalid'>
-                {email === '' ? "Can't be blank" : "Please provide a valid email"}
+                {email === '' ? "Can't be blank" : "Please provide a valid email"} 
             </Form.Control.Feedback>
         </Form.Group>
 
@@ -114,7 +135,7 @@ class FormLogin extends React.Component<Props, State>  {
         <Form.Group controlId="inputPasswordTwo">
             <Form.Label>Confirma tu contraseña.</Form.Label>
             
-            <Form.Control required  type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} isInvalid={nonPasswordMatch} />
+            <Form.Control required  type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} isInvalid={!passwordMatch} />
 
              <Form.Control.Feedback type='invalid'>
                     The password does not match!
