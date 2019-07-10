@@ -17,18 +17,22 @@ interface State {
   email: string
   passwordOne: string 
   passwordTwo: string
-  validatedForm: boolean
+  validatedForm: boolean  
+  nonPasswordMatch: boolean | undefined
+
   
   //TODO: investigate the type of error.
   error: any
 }
 
 const initialState = {
-  
+   
   email: '',
   passwordOne: '',
   passwordTwo: '',
-  validatedForm: false, 
+  validatedForm: false,
+  nonPasswordMatch: undefined,
+  
   
   error: null,
 }
@@ -40,12 +44,19 @@ class FormLogin extends React.Component<Props, State>  {
 
     handleSubmit = (event: React.FormEvent<any>) => {
         const form = event.currentTarget;
+
+        if(this.state.passwordOne !== this.state.passwordTwo) {
+            this.setState({nonPasswordMatch: true})
+        } else {
+            this.setState({nonPasswordMatch: false})
+        }
+
         if( form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
           }
 
-          this.setState({ validatedForm: true });   
+          this.setState({ validatedForm: true });    
 
     } 
 
@@ -66,20 +77,22 @@ class FormLogin extends React.Component<Props, State>  {
         passwordOne,
         passwordTwo,
         error,
-        validatedForm
+        validatedForm, 
+        nonPasswordMatch
         
     } = this.state;
 
     const isBlank = passwordOne === '' || passwordTwo === '' || email === '';
+    
 
     return (
         <div>
-    <Form onSubmit={this.handleSubmit} noValidate validated={validatedForm} className='formComponent'>
+    <Form onSubmit={this.handleSubmit} noValidate  validated={validatedForm} className='formComponent'>
         
         <Form.Group controlId="inputEmail">
             <Form.Label className='emailWord'>Email o Correo Electrónico</Form.Label>
 
-            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} />
+            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange}  />
 
             
 
@@ -92,14 +105,21 @@ class FormLogin extends React.Component<Props, State>  {
         <Form.Group controlId="inputPasswordOne">
             <Form.Label>Contraseña</Form.Label>
             
-            <Form.Control required type="password"  size='lg' value={passwordOne} name='passwordOne' onChange={this.handleChange} />
+            <Form.Control required type="password"  size='lg' value={passwordOne} name='passwordOne' onChange={this.handleChange}   />
+
+
         </Form.Group>
 
 
         <Form.Group controlId="inputPasswordTwo">
             <Form.Label>Confirma tu contraseña.</Form.Label>
             
-            <Form.Control required type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} /> 
+            <Form.Control required  type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} isInvalid={nonPasswordMatch} />
+
+             <Form.Control.Feedback type='invalid'>
+                    The password does not match!
+             </Form.Control.Feedback> 
+
         </Form.Group>
 
 
