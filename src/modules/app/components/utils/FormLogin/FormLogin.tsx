@@ -3,18 +3,21 @@ import { Form, Button, FormControlProps} from 'react-bootstrap'
 
 import './FormLogin.scss'
 import Firebase, {withFirebase} from '../../../../firebaseApp' 
+import {withRouter} from 'react-router-dom';
 
 
 //TODO: make a dir of all interfaces needed in typescript.
 interface Props {
-    firebase : Firebase | null
+    Firebase : Firebase | null
+    history : any
 }
 
 //cannot setState with dynamic key name, more info: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/26635
 interface State {
 
-  [k:string] : string | any
+  [k:string  ]  : string | any
   email: string
+  validEmail: boolean
   passwordOne: string 
   passwordTwo: string
   validatedForm: boolean  
@@ -26,59 +29,78 @@ interface State {
 }
 
 const initialState = {
-   
+    
   email: '',
+  validEmail: true,
   passwordOne: '',
   passwordTwo: '',
   validatedForm: false,  
-  passwordMatch: true,
+  passwordMatch: true , 
   
-  
+   
   error: null,
 }
 
 
 
 
-class FormLogin extends React.Component<Props, State>  {
+class FormLoginBase extends React.Component<Props, State>  {
 
     state : State = {...initialState}
 
-    handleSubmit = (event: React.FormEvent<any>) => {
-        const form = event.currentTarget;
-        const {passwordOne, passwordTwo, email} = this.state;
-
-        if( form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-
-          } 
-
-          this.props.firebase!.doCreateUserWithEmailAndPassword(email, passwordOne).then((authUser : any)  => {
+    isValidFormSubmit = () => {
+        const {passwordMatch , validEmail, passwordOne, email} = this.state;
+        if(passwordMatch && validEmail) {
+            this.setState({ validatedForm: true  })
+            this.props.Firebase!.doCreateUserWithEmailAndPassword(email, passwordOne)
+          
+           .then((authUser : any)  => {
             this.setState({ ...initialState });
+            this.props.history.push('/')
           })
           .catch((error: any) => {
             this.setState({ error });
           });
-    
-        event.preventDefault();
-      ;
+         
+        
+        }
+    }
 
-        if(passwordOne === passwordTwo) {
-            this.setState({passwordMatch: true, validatedForm: true})
+    handleSubmit = (event: React.FormEvent<any>) => {
+        const form = event.currentTarget;
+        const {passwordOne, passwordTwo, email } = this.state;
+        
+        
+
+        /*if(email.includes("@")){
+            this.setState({validEmail: true})
+        } else {
+            this.setState({validEmail: false})
+        }*/
+        this.setState({passwordMatch: passwordOne === passwordTwo, validEmail: email.includes("@") } , this.isValidFormSubmit ); 
+        event.preventDefault();
             
+        event.stopPropagation();
+        
+
+        if( form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-        } else {
+          }
+          
+          
+        
+
+          
+      
+        
+
+          /*else {
             this.setState({passwordMatch: false, validatedForm: false})
             event.preventDefault();
             event.stopPropagation();
-        }
-
-        
-
-          //this.setState({ validatedForm: true });    
-
+        }*/
+    
     } 
 
     handleClick = () => {
@@ -87,7 +109,7 @@ class FormLogin extends React.Component<Props, State>  {
     //TODO: types in reactBootStrap is incomplete, a proper type por event is still missing.; folllow this thread for further information: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16208
     handleChange = (event : React.FormEvent<FormControlProps>) : void => {
         // Type 'HTMLInputElement' as in event.target; follow this thread for further information: https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript/44321394 
-        this.setState({ [(event.target as HTMLInputElement).name ] : (event.target as HTMLInputElement).value });  
+        this.setState({ [(event.target as HTMLInputElement).name ] : (event.target as HTMLInputElement).value }  );  
     };  
  
     //ClassName for Form.Label Component style is 'form-label'
@@ -95,6 +117,8 @@ class FormLogin extends React.Component<Props, State>  {
     //Form.Control works as 'input'  you can change to , 'checkbox' , 'textarea' etc, in 'type' property.
     render() {
         const {email,
+            validEmail,
+        
         passwordOne,
         passwordTwo,
         error,
@@ -104,16 +128,19 @@ class FormLogin extends React.Component<Props, State>  {
     } = this.state;
 
     const isBlank = passwordOne === '' || passwordTwo === '' || email === '';
-    
+    //The "validated" property in <Form> should only be setted to "true" when all the fields or inputs are valid. 
+    //If you set it to true even if the "isInvalid" property in <Form.Control> is true, this will only display the <Form.Control.Feedback type="invalid">
+    //but the <Form.Control> will be displayed in greeen. 
 
     return (
         <div>
+            
     <Form onSubmit={this.handleSubmit} noValidate  validated={validatedForm} className='formComponent'>
         
         <Form.Group controlId="inputEmail">
             <Form.Label className='emailWord'>Email o Correo Electrónico</Form.Label>
 
-            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} />
+            <Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} isInvalid={!validEmail} />
 
             
 
@@ -159,6 +186,8 @@ class FormLogin extends React.Component<Props, State>  {
     
 }
 }
+
+const FormLogin =  withRouter(withFirebase(FormLoginBase));
 
 export default FormLogin;
                     

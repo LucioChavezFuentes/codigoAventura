@@ -3,7 +3,7 @@ import React from 'react';
 import './Home.scss';
 import FormLogin from '../../utils/FormLogin/FormLogin'
 import Header from '../../utils/Header/Header'
-import {FirebaseContext} from '../../../../firebaseApp'
+
 
 const Home = () => {
 
@@ -26,9 +26,9 @@ const Home = () => {
                 </div>
 
                 <div className='registration'>
-                <FirebaseContext.Consumer>
-                    {firebase => <FormLogin firebase={firebase} /> }
-                </FirebaseContext.Consumer>
+                
+                     <FormLogin /> 
+                
                     
 
                 </div>

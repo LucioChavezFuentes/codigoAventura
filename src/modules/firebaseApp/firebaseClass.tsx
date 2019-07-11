@@ -21,23 +21,23 @@ class Firebase {
         
     }
 
-    doCreateUserWithEmailAndPassword = (email:string, password:string) : any => {
+    doCreateUserWithEmailAndPassword = (email:string, password:string)   => 
       this.auth.createUserWithEmailAndPassword(email, password);
-    }
     
-    doSingInWithEmailAndPassword = (email:string, password:string) => {
-      this.auth.signInWithEmailAndPassword(email, password);
-    }
+    
+    doSingInWithEmailAndPassword = (email:string, password:string) => 
+      this.auth.signInWithEmailAndPassword(email, password); 
+    
 
     doSignOut = () => this.auth.signOut();
 
-    doPassWordReset = (email:string) => {
+    doPassWordReset = (email:string) => 
       this.auth.sendPasswordResetEmail(email)
-    }
+    
 
-    doPasswordUpdate = (password:string)  =>   {
+    doPasswordUpdate = (password:string)  =>   
       this.auth.currentUser!.updatePassword(password);
-    }
+    
       
 }
 

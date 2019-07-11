@@ -4,9 +4,9 @@ import './index.scss';
 import App from './modules/app/App';
 import * as serviceWorker from './serviceWorker';
 
-import firebase, {FirebaseContext}  from './modules/firebaseApp';
+import Firebase, {FirebaseContext}  from './modules/firebaseApp';
 
-ReactDOM.render( <FirebaseContext.Provider value={new firebase()} > 
+ReactDOM.render( <FirebaseContext.Provider value={new Firebase()} > 
                     <App /> 
                 </FirebaseContext.Provider>  , 
     document.getElementById('root'));
