@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {Home , About, Contact, Error} from './Routes';
+import * as ROUTES from './constants/routes'
 import './Body.scss';
 
 
@@ -21,7 +22,7 @@ const Body:React.FC = () => {
                     
                     <Switch location={location}>
                       
-                      <Route path="/" component={Home} exact  />
+                      <Route path={ROUTES.LANDING} component={Home} exact  />
 
                       <Route path="/about" component={About}  />
 

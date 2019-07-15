@@ -3,7 +3,7 @@ import {  Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
-import Header from '../utils/Header/Header'
+import Header from '../Header/Header'
 import Body from '../Body'
 
 afterEach(cleanup)
