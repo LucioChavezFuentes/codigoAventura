@@ -143,7 +143,7 @@ class FormLoginBase extends React.Component<Props, State>  {
             
 
             <Form.Control.Feedback type='invalid'>
-                {email === '' ? "Can't be blank" : "Please provide a valid email"} 
+                {email === '' ? "Can't be blank" : "Por favor escribe un email válido, uno que tenga '@' y '.com " } 
             </Form.Control.Feedback>
         </Form.Group>
 
