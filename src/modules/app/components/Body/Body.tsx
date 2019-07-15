@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
-import {Home , About, Contact, Error} from '../Routes';
+import {Home , About, Contact, Error} from './Routes';
 import './Body.scss';
 
 
