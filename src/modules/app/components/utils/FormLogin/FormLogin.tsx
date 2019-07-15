@@ -70,14 +70,12 @@ class FormLoginBase extends React.Component<Props, State>  {
         const form = event.currentTarget;
         const {passwordOne, passwordTwo, email } = this.state;
         
-        
+        let doesPasswordMatch : boolean = passwordOne === passwordTwo && (passwordOne.length >= 6) ;
+        let isEmailValid : boolean = email.includes("@") &&  email.includes(".com")
+    
 
-        /*if(email.includes("@")){
-            this.setState({validEmail: true})
-        } else {
-            this.setState({validEmail: false})
-        }*/
-        this.setState({passwordMatch: passwordOne === passwordTwo, validEmail: email.includes("@") } , this.isValidFormSubmit ); 
+        
+        this.setState({passwordMatch: doesPasswordMatch, validEmail: isEmailValid } , this.isValidFormSubmit ); 
         event.preventDefault();
             
         event.stopPropagation();
@@ -165,7 +163,7 @@ class FormLoginBase extends React.Component<Props, State>  {
             <Form.Control required  type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} isInvalid={!passwordMatch} />
 
              <Form.Control.Feedback type='invalid'>
-                    The password does not match!
+                    {passwordOne.length < 6 ? 'La contraseña tiene que ser de al menos 6 caracteres.' : '¡La contraseña no es la misma!' }  
              </Form.Control.Feedback> 
 
         </Form.Group>
@@ -176,7 +174,7 @@ class FormLoginBase extends React.Component<Props, State>  {
                 Submit
         </Button>
 
-        {error && <p>{error.message}</p>}
+        {error && <p className="errorFirebase">{error.message}</p>}
 
     </Form>
 
