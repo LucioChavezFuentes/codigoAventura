@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Landing.scss';
-import FormLogin from '../pagesComponents/FormLogin/FormLogin'
+import SignUpForm from '../pagesComponents/SignUpForm/SignUpForm'
 import Header from '../pagesComponents/Header/Header'
 
 
@@ -27,7 +27,7 @@ const Landing = () => {
 
                 <div className='registration'>
                 
-                     <FormLogin /> 
+                     <SignUpForm />  
                 
                     
 

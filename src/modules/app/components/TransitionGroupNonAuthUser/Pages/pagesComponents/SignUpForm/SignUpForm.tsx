@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Button, FormControlProps} from 'react-bootstrap'
 
-import './FormLogin.scss'
+import './SignUpForm.scss'
 import Firebase, {withFirebase} from '../../utils/firebaseApp'   
 import {withRouter} from 'react-router-dom';
 
@@ -44,7 +44,7 @@ const initialState = {
 
 
 
-class FormLoginBase extends React.Component<Props, State>  {
+class SignUpFormBase extends React.Component<Props, State>  {
 
     state : State = {...initialState}
 
@@ -185,7 +185,7 @@ class FormLoginBase extends React.Component<Props, State>  {
 }
 }
 
-const FormLogin =  withRouter(withFirebase(FormLoginBase));
+const SignUpForm =  withRouter(withFirebase(SignUpFormBase));
 
-export default FormLogin;
+export default SignUpForm; 
                     

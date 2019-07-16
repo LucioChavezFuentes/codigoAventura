@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormLogin from '../FormLogin'
+import FormLogin from '../SignUpForm'
 import { cleanup, render } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 
