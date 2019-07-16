@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../pagesComponents/Header/Header'
+import Header from '../utilsComponents/Header/Header'
 
 const Error = () => {
 

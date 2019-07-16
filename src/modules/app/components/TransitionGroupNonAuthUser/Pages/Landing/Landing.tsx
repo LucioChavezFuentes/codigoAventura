@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './Landing.scss';
-import SignUpForm from '../pagesComponents/SignUpForm/SignUpForm'
-import Header from '../pagesComponents/Header/Header'
+import SignUpForm from '../utilsComponents/SignUpForm/SignUpForm'
+import Header from '../utilsComponents/Header/Header'
 
 
 const Landing = () => {
