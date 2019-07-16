@@ -5,12 +5,12 @@ import SignUpForm from '../utilsComponents/SignUpForm/SignUpForm'
 import Header from '../utilsComponents/Header/Header'
 
 
-const Landing = () => {
+const LandingPage = () => {
 
     return (
         <div className='page'>
             <Header  />
-            <div className='home-page'> 
+            <div className='landing-page'> 
             
 
                 <div className='greeting'>
@@ -41,4 +41,4 @@ const Landing = () => {
     )
 }
 
-export default Landing;
+export default LandingPage;

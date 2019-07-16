@@ -1,9 +1,7 @@
-.landing-page {
+.signUp-page {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    position: relative;
+    flex-direction: column;
     top: 3rem;
 }
 
@@ -11,7 +9,11 @@
     font-size: 2.1rem
 }
 
-.registration {
+.signUp-registration {
+    
+    position: relative;
+    top: 2rem;
     font-size: 1.1rem;
+
     
 }
