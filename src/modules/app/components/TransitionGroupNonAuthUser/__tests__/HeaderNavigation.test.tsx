@@ -3,7 +3,7 @@ import {  Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
-import Header from '../Pages/Landing/LandingComponents/Header/Header'
+import Header from '../Pages/pagesComponents/Header/Header'
 import Body from '../TransitionGroupNonAuthUser'
 
 afterEach(cleanup)
@@ -12,7 +12,7 @@ const AppNavigation : React.FC = () => {
 
     return(
         <div>
-        <Header inCourse={true} />
+        <Header />
         <Body/>
         
     </div>

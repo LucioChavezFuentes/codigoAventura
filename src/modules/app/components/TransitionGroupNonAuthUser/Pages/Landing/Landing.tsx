@@ -1,15 +1,15 @@
 import React from 'react';
 
 import './Landing.scss';
-import FormLogin from './LandingComponents/FormLogin/FormLogin'
-import Header from './LandingComponents/Header/Header'
+import FormLogin from '../pagesComponents/FormLogin/FormLogin'
+import Header from '../pagesComponents/Header/Header'
 
 
 const Landing = () => {
 
     return (
         <div className='page'>
-            <Header inCourse={true} />
+            <Header  />
             <div className='home-page'> 
             
 

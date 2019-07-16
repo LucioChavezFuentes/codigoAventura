@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, FormControlProps} from 'react-bootstrap'
 
 import './FormLogin.scss'
-import Firebase, {withFirebase} from '../../../utils/firebaseApp'   
+import Firebase, {withFirebase} from '../../utils/firebaseApp'   
 import {withRouter} from 'react-router-dom';
 
 

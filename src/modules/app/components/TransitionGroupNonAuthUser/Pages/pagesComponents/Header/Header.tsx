@@ -1,16 +1,16 @@
 import React from 'react';
 import './Header.scss'
-import * as ROUTES from '../../../../constants/routes'
+import * as ROUTES from '../../../constants/routes'
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 
 
-interface headerState {
-  inCourse : boolean;
-}
 
-const Header: React.FC<headerState> = (props) => {
+
+const Header = () => {
+
+   
   
   return (
     <div className="header">
