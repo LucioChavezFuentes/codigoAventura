@@ -1,5 +1,5 @@
-export {default as About} from './About/About';
-export {default as Contact} from './Contact/Contact';
-export {default as Error} from './Error/Error';
-export {default as Landing} from './Landing/Landing';
+export {default as AboutPage} from './AboutPage/AboutPage';
+export {default as ContactPage} from './ContactPage/ContactPage';
+export {default as ErrorPage} from './ErrorPage/ErrorPage';
+export {default as LandingPage} from './LandingPage/LandingPage';
 export {default as SignUpPage} from './SignUpPage/SignUpPage';

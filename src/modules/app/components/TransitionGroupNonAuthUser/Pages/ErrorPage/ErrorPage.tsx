@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../utilsComponents/Header/Header'
 
-const Error = () => {
+const ErrorPage = () => {
 
     return (
         <div className='page' >
@@ -11,4 +11,4 @@ const Error = () => {
     )
 }
 
-export default Error;
+export default ErrorPage;
