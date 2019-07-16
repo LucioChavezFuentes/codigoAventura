@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss'
-
+import * as ROUTES from '../../../../constants/routes'
 
 import { NavLink } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const Header: React.FC<headerState> = (props) => {
   return (
     <div className="header">
       <div className="leftSection"> 
-        <NavLink to='/'> Home </NavLink>
+        <NavLink to={ROUTES.LANDING}> Home </NavLink>
   {/* Check these Links for further implementation 
   <NavLink to='/about' > About </NavLink>
         <NavLink to='/contact'> Contact </NavLink>*/}

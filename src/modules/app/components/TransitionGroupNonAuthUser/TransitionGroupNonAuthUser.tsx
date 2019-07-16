@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
-import {Home , About, Contact, Error} from './Routes';
+import {Landing , About, Contact, Error} from './Pages';
 import * as ROUTES from './constants/routes'
 import './TransitionGroupNonAuthUser.scss';
 
@@ -22,7 +22,7 @@ const TransitionGroupNonAuthUser:React.FC = () => {
                     
                     <Switch location={location}>
                       
-                      <Route path={ROUTES.LANDING} component={Home} exact  />
+                      <Route path={ROUTES.LANDING} component={Landing} exact  />
 
                       <Route path="/about" component={About}  />
 

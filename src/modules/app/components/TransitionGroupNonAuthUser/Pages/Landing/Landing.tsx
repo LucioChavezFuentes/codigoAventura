@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './Home.scss';
-import FormLogin from './HomeComponents/FormLogin/FormLogin'
-import Header from './HomeComponents/Header/Header'
+import './Landing.scss';
+import FormLogin from './LandingComponents/FormLogin/FormLogin'
+import Header from './LandingComponents/Header/Header'
 
 
-const Home = () => {
+const Landing = () => {
 
     return (
         <div className='page'>
@@ -41,4 +41,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Landing;
