@@ -3,10 +3,10 @@ import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {Home , About, Contact, Error} from './Routes';
 import * as ROUTES from './constants/routes'
-import './Body.scss';
+import './TransitionGroupNonAuthUser.scss';
 
 
-const Body:React.FC = () => {
+const TransitionGroupNonAuthUser:React.FC = () => {
     
     return(
       <div>
@@ -40,5 +40,5 @@ const Body:React.FC = () => {
     ) 
 }
 
-export default Body;
+export default TransitionGroupNonAuthUser;
 

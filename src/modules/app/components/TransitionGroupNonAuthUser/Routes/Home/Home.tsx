@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './Home.scss';
-import FormLogin from '../../FormLogin/FormLogin'
-import Header from '../../Header/Header'
+import FormLogin from './HomeComponents/FormLogin/FormLogin'
+import Header from './HomeComponents/Header/Header'
 
 
 const Home = () => {
