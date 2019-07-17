@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Landing.scss';
+import './LandingPage.scss';
 import SignUpForm from '../utilsComponents/SignUpForm/SignUpForm'
 import Header from '../utilsComponents/Header/Header'
 

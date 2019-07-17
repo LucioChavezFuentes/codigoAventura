@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
-import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage} from './Pages';
+import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
 import './TransitionGroupNonAuthUser.scss';
 
@@ -25,6 +25,8 @@ const TransitionGroupNonAuthUser:React.FC = () => {
                       <Route path={ROUTES.LANDING} component={LandingPage} exact  />
 
                       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+
+                      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
 
                       <Route path="/about" component={AboutPage}  />
 
