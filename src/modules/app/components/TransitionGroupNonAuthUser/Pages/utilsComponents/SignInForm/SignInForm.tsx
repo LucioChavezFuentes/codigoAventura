@@ -47,10 +47,10 @@ class SignInFormBase extends React.Component<Props, State>  {
     state : State = {...initialState}
 
     isValidFormSubmit = () => {
-        const {passwordMatch , validEmail, passwordOne, email} = this.state;
-        if(passwordMatch && validEmail) {
+        const {validEmail, password, email} = this.state;
+        if( validEmail) {
             this.setState({ validatedForm: true  })
-            this.props.Firebase!.doSingInWithEmailAndPassword(email, passwordOne)
+            this.props.Firebase!.doSingInWithEmailAndPassword(email, password)
           
            .then((authUser : any)  => {
             this.setState({ ...initialState });
@@ -66,14 +66,15 @@ class SignInFormBase extends React.Component<Props, State>  {
 
     handleSubmit = (event: React.FormEvent<any>) => {
         const form = event.currentTarget;
-        const {passwordOne, passwordTwo, email } = this.state;
+        const { email } = this.state;
         
-        let doesPasswordMatch : boolean = passwordOne === passwordTwo && (passwordOne.length >= 6) ;
-        let isEmailValid : boolean = email.includes("@") &&  email.includes(".com")
+        //let doesPasswordMatch : boolean = passwordOne === passwordTwo && (passwordOne.length >= 6) ;
+        let isEmailValid : boolean = email.includes("@") &&  email.includes(".com");  
     
 
         
-        this.setState({passwordMatch: doesPasswordMatch, validEmail: isEmailValid } , this.isValidFormSubmit ); 
+        this.setState({validEmail: isEmailValid } , this.isValidFormSubmit ); 
+        
         event.preventDefault();
             
         event.stopPropagation();
@@ -149,7 +150,7 @@ class SignInFormBase extends React.Component<Props, State>  {
         <Form.Group controlId="inputPassword">
             <Form.Label>Confirma tu contraseña.</Form.Label>
             
-            <Form.Control required  type="password"  size='lg' value={password} name='passwordTwo' onChange={this.handleChange} isInvalid={!!error} />
+            <Form.Control required  type="password"  size='lg' value={password} name='password' onChange={this.handleChange} isInvalid={!!error} />
 
              <Form.Control.Feedback type='invalid'>
                     Contraseña Incorrecta
@@ -163,7 +164,7 @@ class SignInFormBase extends React.Component<Props, State>  {
                 Submit
         </Button>
 
-        {error && <p className="errorFirebase">{error.message}</p>}
+        
 
     </Form>
 
