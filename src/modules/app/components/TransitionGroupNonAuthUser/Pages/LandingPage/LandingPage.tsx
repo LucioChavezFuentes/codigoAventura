@@ -15,7 +15,7 @@ const LandingPage = () => {
 
                 <div className='greeting'>
                     <div>
-                        <p>!Cualquiera puede programar! </p>
+                        <p>!Cualquiera puede programar!</p>
                         <p>Es más que una carrera... Es una aventura.</p>
                     </div>
 

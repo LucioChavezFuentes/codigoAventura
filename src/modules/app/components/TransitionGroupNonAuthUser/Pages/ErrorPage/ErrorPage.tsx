@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../utilsComponents/Header/Header'
 
 const ErrorPage = () => {
-
+    
     return (
         <div className='page' >
             <Header/>

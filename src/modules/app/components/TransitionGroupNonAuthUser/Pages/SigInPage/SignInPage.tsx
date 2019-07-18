@@ -13,7 +13,7 @@ const SignInPage = () => {
 
                 <div className='welcome-back'>
                     <div>
-                        <p>!Continua tu aventura! </p>
+                        <p>!Continua tu aventura!</p>
                         
                     </div>
 

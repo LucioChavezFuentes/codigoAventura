@@ -7,16 +7,16 @@ import './SignUpPage.scss';
 
 const SignUpPage = () => {
 
-    return(
+    return (
         <div className='page'>
-            <Header/>
-            <div className='signUp-page'> 
-            
+            <Header />
+
+            <div className='signUp-page'>
+
 
                 <div className='greeting'>
                     <div>
-                        <p>!Empieza tu aventura aquí! </p>
-                        
+                        <p>!Empieza tu aventura aquí!</p>
                     </div>
 
                     <div>
@@ -26,19 +26,13 @@ const SignUpPage = () => {
                 </div>
 
                 <div className='signUp-registration'>
-                
-                     <SignUpForm />  
-                
-                    
-
+                    <SignUpForm />
                 </div>
-                
-                
+
+
             </div>
-
-
         </div>
-    ) 
+    )
 }
 
 export default SignUpPage;

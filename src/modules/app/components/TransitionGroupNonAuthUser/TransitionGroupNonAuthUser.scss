@@ -1,26 +1,26 @@
 .page {
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    right: 0;
-  }
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+}
   
   
-  .fade-enter {
-    opacity: 0;
-    z-index: 1;
-  }
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
   
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms linear 150ms;
-  }
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear 150ms;
+}
   
-  .fade-exit {
-    opacity: 1;
-  }
+.fade-exit {
+  opacity: 1;
+}
   
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 150ms linear ;
-  }
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 150ms linear ;
+}

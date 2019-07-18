@@ -1,37 +1,35 @@
 import React from 'react';
-import {  Router } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
 import Header from '../Pages/utilsComponents/Header/Header'
-import Body from '../TransitionGroupNonAuthUser'
+import TransitionGroupNonAuthUser from '../TransitionGroupNonAuthUser'
 
 afterEach(cleanup)
 
-const AppNavigation : React.FC = () => {
+const AppNavigation: React.FC = () => {
 
-    return(
-        <div>
-        <Header />
-        <Body/>
-        
+  return (
+    <div>
+      <Header />
+      <TransitionGroupNonAuthUser />
     </div>
-    )
-    
-} 
+  )
+
+}
 
 
 
 // this is a handy function that I would utilize for any component
 // that relies on the router being in context
-function renderWithRouter(ui : any,
+function renderWithRouter(ui: any,
   {
-  route = '/',
-  history = createMemoryHistory({ initialEntries: [route] }),
+    route = '/',
+    history = createMemoryHistory({ initialEntries: [route] }),
 
-} = {}
-) 
-  {
+  } = {}
+) {
   return {
     ...render(<Router history={history}>{ui}</Router>),
     // adding `history` to the returned utilities to allow us
@@ -41,17 +39,17 @@ function renderWithRouter(ui : any,
   }
 }
 
-test('full app rendering/navigating', () => {
+test('the rendering/navigating on pages for Non Authenticated Users', () => {
   const { container, getByText } = renderWithRouter(<AppNavigation />)
   // normally I'd use a data-testid, but just wanted to show this is also possible
-  expect(getByText('Aprender a progrmar es más fácil de lo que crees.')).toBeTruthy()
+  expect(getByText('!Cualquiera puede programar!')).toBeTruthy()
   const leftClick = { button: 0 }
-  fireEvent.click(getByText(/About/i), leftClick)
+  fireEvent.click(getByText(/Iniciar Sesión/i), leftClick)
   // normally I'd use a data-testid, but just wanted to show this is also possible
-  expect(getByText('Acerca de Programación Papita')).toBeTruthy()
-  fireEvent.click(getByText(/Contact/i), leftClick)
-  expect(getByText('Contáctanos Chavo!')).toBeTruthy()
-  
+  expect(getByText('!Continua tu aventura!')).toBeTruthy()
+  fireEvent.click(getByText(/Resgístrate/i), leftClick)
+  expect(getByText('!Empieza tu aventura aquí!')).toBeTruthy()
+
 
 })
 

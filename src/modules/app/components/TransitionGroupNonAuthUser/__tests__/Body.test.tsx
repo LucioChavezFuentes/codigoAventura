@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import Body from '../TransitionGroupNonAuthUser';
+import TransitionGroupNonAuthUser from '../TransitionGroupNonAuthUser';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
-it('renders body without crashing', () => {
+it('renders the landing page without crashing', () => {
   const componentBody =  renderer
-  .create(<BrowserRouter><Body/></BrowserRouter>)
+  .create(<BrowserRouter><TransitionGroupNonAuthUser/></BrowserRouter>)
   .toJSON();
-expect(componentBody).toMatchSnapshot();
+  expect(componentBody).toMatchSnapshot();
   //expect(componentBody.contains(<Body/>)).toEqual(true);
 });
 

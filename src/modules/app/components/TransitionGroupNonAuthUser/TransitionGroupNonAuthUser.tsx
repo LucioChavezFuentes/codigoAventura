@@ -11,7 +11,6 @@ const TransitionGroupNonAuthUser:React.FC = () => {
     return(
       <div>
 
-      
         <Route 
 // tslint:disable-next-line: jsx-no-multiline-js
               render={({location}) => (
