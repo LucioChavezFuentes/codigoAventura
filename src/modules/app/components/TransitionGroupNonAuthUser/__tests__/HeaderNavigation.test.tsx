@@ -50,7 +50,6 @@ test('the rendering/navigating on pages for Non Authenticated Users', () => {
   fireEvent.click(getByText(/Resgístrate/i), leftClick)
   expect(getByText('!Empieza tu aventura aquí!')).toBeTruthy()
 
-
 })
 
 test('landing on a bad page', () => {
