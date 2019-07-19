@@ -18,16 +18,20 @@ const App: React.FC<appProps> = (props) => {
   const [authUser , setAuthUser] = useState<firebase.User|null>(null);
 
   useEffect (() => {
-    props.Firebase!.auth.onAuthStateChanged((authUser)  => {
+    const listener = props.Firebase!.auth.onAuthStateChanged((authUser)  => {
       authUser ? setAuthUser(authUser) : setAuthUser(null)
-    }) 
+    })
+    
+    return () => {
+      listener()
+    }
 
   }); 
 
   return (
     <div className="App">
       <BrowserRouter>
-        
+        {}
         <TransitionGroupNonAuthUser/>
         
       </BrowserRouter>
