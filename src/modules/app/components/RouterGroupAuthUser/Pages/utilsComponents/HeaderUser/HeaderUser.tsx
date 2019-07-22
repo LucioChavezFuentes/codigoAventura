@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss';
+import './HeaderUser.scss';
 import * as ROUTES from '../../../constants/routes';
 import Firebase, {withFirebase} from '../../utils/firebaseApp';
 
@@ -31,7 +31,7 @@ class HeaderUserBase extends React.Component<Props> {
           </div>
 
           <div className='userAvatar'>
-            <img src='./graphic-3739607_1280.png' />
+            <img src='./graphic-3739607_1280.png' alt='myAvatar' />
           </div>
 
         </div>

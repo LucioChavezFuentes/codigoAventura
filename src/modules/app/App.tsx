@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Firebase, {withFirebase, AuthUserContext}  from '../firebaseApp';
 import './App.scss';
-import {BrowserRouter } from 'react-router-dom';
+import {BrowserRouter, RouteComponentProps } from 'react-router-dom';
 
 import TransitionGroupNonAuthUser from './components/TransitionGroupNonAuthUser/TransitionGroupNonAuthUser';
 import RouterGroupAuthUser from './components/RouterGroupAuthUser/RouterGroupAuthUser';
 
-interface appProps {
+interface appProps extends RouteComponentProps {
   Firebase: Firebase | null
   authUser: firebase.User
 }
@@ -20,7 +20,12 @@ const App: React.FC<appProps> = (props) => {
 
   useEffect (() => {
     const listener = props.Firebase!.auth.onAuthStateChanged((authUser)  => {
-      authUser ? setAuthUser(authUser) : setAuthUser(null)
+      if(authUser) {
+        
+        setAuthUser(authUser)
+      }  else{
+        setAuthUser(null)
+      } 
     })
     
     return () => {
@@ -34,9 +39,8 @@ const App: React.FC<appProps> = (props) => {
       <AuthUserContext.Provider value={authUser}>
         <BrowserRouter>
           {authUser ?   <RouterGroupAuthUser/> : <TransitionGroupNonAuthUser/>  }
-          
-          
         </BrowserRouter>
+    
       </AuthUserContext.Provider>
       
     </div>

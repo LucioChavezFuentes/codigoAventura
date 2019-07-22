@@ -1,0 +1,44 @@
+.header {
+    
+    width: 100%;
+    border-bottom: 1px solid seashell;
+    height: 89px;
+    right:0;
+    background-color: white;
+    z-index: 1;
+    top: 0;
+    
+}
+
+.leftSection {
+    float: left;
+    color: rgb(0, 135, 197);
+    
+    padding: 30px;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+.leftSection a {
+    color: rgb(0, 135, 197);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.rightSection {
+    float: right;
+    color: rgb(0, 135, 197);
+    
+    padding: 30px;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+.rightSection a {
+    
+    color: rgb(0, 135, 197);
+    text-decoration: none;
+    padding: 30px;
+    text-align: center;
+    font-family: Helvetica;
+}

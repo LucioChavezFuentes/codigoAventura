@@ -8,7 +8,8 @@ interface Props extends RouteComponentProps {}
 
 const RouterGroupAuthUserBase: React.FC<Props> = ({history}) => {
 
-    
+    //DO NOT UNCOMMENT It creates an infinte loop?
+    //history.push('/home');
 
     return(
         <Switch>
