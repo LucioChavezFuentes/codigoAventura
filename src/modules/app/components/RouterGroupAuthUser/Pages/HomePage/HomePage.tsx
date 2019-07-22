@@ -4,7 +4,12 @@ import HeaderUser from '../utilsComponents/HeaderUser/HeaderUser'
 
 const HomePage: React.FC = () => {
     return(
-        <HeaderUser/>
+        <div>
+            <HeaderUser/>
+            <p>Prográmale aquí chavo</p>
+
+        </div>
+        
     )
 }
 

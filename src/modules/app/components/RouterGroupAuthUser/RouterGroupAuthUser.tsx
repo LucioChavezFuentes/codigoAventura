@@ -1,10 +1,14 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, withRouter, RouteComponentProps} from 'react-router-dom';
 import * as ROUTES from '../RouterGroupAuthUser/constants/routes'
 import HomePage from '../RouterGroupAuthUser/Pages/HomePage/HomePage'
 
+interface Props extends RouteComponentProps {}
 
-const RouterGroupAuthUser: React.FC = () => {
+
+const RouterGroupAuthUserBase: React.FC<Props> = ({history}) => {
+
+    
 
     return(
         <Switch>
@@ -14,5 +18,7 @@ const RouterGroupAuthUser: React.FC = () => {
         
     )
 }
+
+const RouterGroupAuthUser = withRouter(RouterGroupAuthUserBase)
 
 export default RouterGroupAuthUser;
