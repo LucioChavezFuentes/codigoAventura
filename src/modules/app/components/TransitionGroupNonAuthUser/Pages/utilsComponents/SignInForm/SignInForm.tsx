@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, FormControlProps } from 'react-bootstrap'
+import * as ROUTES from '../../../constants/routes';
 
 import './SignInForm.scss'
 import Firebase, { withFirebase } from '../../utils/firebaseApp'
@@ -42,13 +43,11 @@ class SignInFormBase extends React.Component<Props, State>  {
 
 				.then((authUser: any) => {
 					this.setState({ ...initialState });
-					this.props.history.push('/')
+					this.props.history.push(ROUTES.HOME)
 				})
 				.catch((error: any) => {
 					this.setState({ error });
 				});
-
-
 		}
 	}
 
