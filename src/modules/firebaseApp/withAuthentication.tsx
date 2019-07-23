@@ -10,22 +10,23 @@ interface Props {
     
 }
 
-const withAuthentication = (Component: React.ComponentType) => {
+const withAuthentication = (Component: React.ComponentType<any>) => {
 class withAuthenticationBase extends React.Component<Props> {
 
     listener: any;
 
     state = {
-        authUser : null
+        authUser : null,
+        vanish : 'vanish'
     }
 
     componentDidMount() {
         this.listener = this.props.Firebase.auth.onAuthStateChanged(authUser => {
-            authUser ? this.setState({authUser}) : this.setState({authUser : null})
+            authUser ? this.setState({authUser, vanish: ''}) : this.setState({authUser : null, vanish: ''}) 
         })
     }
 
-    componentWillUnmount() {
+    componentWillUnmount() { 
         this.listener();
     }
 
@@ -33,7 +34,7 @@ class withAuthenticationBase extends React.Component<Props> {
 
         return(
             <authContext.Provider value={this.state.authUser} >
-                <Component {...this.props}  />
+                <Component {...this.props}  vanish={this.state.vanish}  />
             </authContext.Provider>
         )
     }

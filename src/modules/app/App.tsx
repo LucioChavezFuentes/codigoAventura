@@ -1,41 +1,28 @@
 import React, {useState, useEffect} from 'react';
-import Firebase, {withFirebase, AuthUserContext}  from '../firebaseApp';
+import Firebase, {withFirebase, AuthUserContext, withAuthentication}  from '../firebaseApp';
 import './App.scss';
 import {BrowserRouter, RouteComponentProps } from 'react-router-dom';
-import {withAuthentication} from '../firebaseApp';
 import TransitionGroupNonAuthUser from './components/TransitionGroupNonAuthUser/TransitionGroupNonAuthUser';
 import RouterGroupAuthUser from './components/RouterGroupAuthUser/RouterGroupAuthUser';
 
-interface appProps extends RouteComponentProps {
-  Firebase: Firebase | null
-  authUser: firebase.User
+interface appProps  {
+  vanish: string
+  
 }
 
 
-const App: React.FC<appProps> = (props) => {
+const App: React.FC = (props: any) => {  
 
-  const [authUser , setAuthUser] = useState<firebase.User| null>(null);
-
-  useEffect (() => {
-    const listener = props.Firebase!.auth.onAuthStateChanged((authUser)  => {
-      if(authUser) {
-        setAuthUser(authUser)
-      }  else{
-        setAuthUser(null)
-      } 
-    })
-    
-    return () => { 
-      listener();
-    }
-
-  });
+  
   
     return (
       <div className="App">
         
           <BrowserRouter>
-            {authUser ? <RouterGroupAuthUser/> : <TransitionGroupNonAuthUser vanish={'vanish'} />}
+            <AuthUserContext.Consumer>
+             {authUser => authUser ? <RouterGroupAuthUser/> : <TransitionGroupNonAuthUser vanish={props.vanish} />}  
+            </AuthUserContext.Consumer>
+            
           </BrowserRouter>
     
       </div>
