@@ -43,7 +43,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 
 				.then((authUser: any) => {
 					this.setState({ ...initialState });
-					this.props.history.push(ROUTES.HOME)
+					this.props.history.push('/') 
 				})
 				.catch((error: any) => {
 					this.setState({ error });

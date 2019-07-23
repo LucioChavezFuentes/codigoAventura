@@ -1,9 +1,18 @@
+.vanish {
+  display: none;
+  visibility: hidden;
+}
+
+
 .page {
   position: absolute;
   top: 1rem;
   left: 0;
   right: 0;
 }
+
+
+
   
   
 .fade-enter {

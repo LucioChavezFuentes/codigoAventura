@@ -3,21 +3,30 @@ import './HeaderUser.scss';
 import * as ROUTES from '../../../constants/routes';
 import Firebase, {withFirebase} from '../../utils/firebaseApp';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface Props {
+interface Props extends RouteComponentProps  {
   Firebase : Firebase | null
 }
 
 
 class HeaderUserBase extends React.Component<Props> {
+  
+  handleClick = () => {
+    
+    
+    this.props.history.push('/')
+      
 
-  render() {
+  }
+
+  render() { 
+    
     return (
 
       <div className="header">
         <div className="leftSection">
-          <NavLink to={ROUTES.HOME}>Código Aventura</NavLink>
+          <NavLink to={'/'}>Código Aventura</NavLink> 
           {/* Check these Links for further implementation
           <NavLink to='/about' > About </NavLink>
                 <NavLink to='/contact'> Contact </NavLink>*/}
@@ -26,21 +35,21 @@ class HeaderUserBase extends React.Component<Props> {
 
         <div className="rightSection">
 
-          <div onClick={this.props.Firebase!.doSignOut}>
-            <p>Cerrar Sesión</p>
+          <div className='signOutButton' >
+            <button onClick={this.props.Firebase!.doSignOut}>Cerrar Sesión</button> 
           </div>
 
           <div className='userAvatar'>
             <img src='./graphic-3739607_1280.png' alt='myAvatar' />
-          </div>
-
+          </div> 
+ 
         </div>
       </div>)
-
+   
   }
 
 
 }
 
-const HeaderUser = withFirebase(HeaderUserBase);
+const HeaderUser = withRouter(withFirebase(HeaderUserBase));
 export default HeaderUser;

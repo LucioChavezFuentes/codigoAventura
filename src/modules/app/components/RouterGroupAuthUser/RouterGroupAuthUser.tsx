@@ -1,25 +1,37 @@
 import React from 'react';
-import { Route, Switch, withRouter, RouteComponentProps} from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import * as ROUTES from '../RouterGroupAuthUser/constants/routes'
 import HomePage from '../RouterGroupAuthUser/Pages/HomePage/HomePage'
 
-interface Props extends RouteComponentProps {}
 
 
-const RouterGroupAuthUserBase: React.FC<Props> = ({history}) => {
+
+const RouterGroupAuthUser: React.FC = () => {
 
     //DO NOT UNCOMMENT It creates an infinte loop?
-    //history.push('/home');
-
+    //history.push('/home'); <Redirect  to={ROUTES.HOME} />
+    
     return(
-        <Switch>
-            <Route path={ROUTES.HOME} component={HomePage}  />
+        <div>
+            <Switch>
+                
+                
+                <Route path={'/'} component={HomePage} exact  />
 
-        </Switch>
+                
+
+            </Switch>
+
+
+            
+            
+            
+        </div>
+        
         
     )
 }
 
-const RouterGroupAuthUser = withRouter(RouterGroupAuthUserBase)
+
 
 export default RouterGroupAuthUser;

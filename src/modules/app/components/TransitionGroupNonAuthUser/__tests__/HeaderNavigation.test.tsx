@@ -13,7 +13,7 @@ const AppNavigation: React.FC = () => {
   return (
     <div>
       <Header />
-      <TransitionGroupNonAuthUser />
+      <TransitionGroupNonAuthUser vanish={undefined} />
     </div>
   )
 
