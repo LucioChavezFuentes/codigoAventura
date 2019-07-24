@@ -2,6 +2,7 @@ import React from 'react';
 import authContext from './authContext';
 import {withFirebase} from './index';
 import Firebase from '../app/components/RouterGroupAuthUser/Pages/utils/firebaseApp';
+import withRouter from 'react-router-dom';
 
 
 
@@ -22,7 +23,14 @@ class withAuthenticationBase extends React.Component<Props> {
 
     componentDidMount() {
         this.listener = this.props.Firebase.auth.onAuthStateChanged(authUser => {
-            authUser ? this.setState({authUser, vanish: ''}) : this.setState({authUser : null, vanish: ''}) 
+
+            if(authUser) {
+                this.setState({authUser, vanish: ''})
+            } else {
+                this.setState({authUser : null, vanish: ''}) 
+                
+            }
+             
         })
     }
 

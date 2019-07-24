@@ -15,8 +15,11 @@ class HeaderUserBase extends React.Component<Props> {
   handleClick = () => {
     
     
-    this.props.history.push('/')
-      
+    
+    this.props.Firebase!.doSignOut().then(() => {
+ 
+      this.props.history.push(ROUTES.SIGN_IN)
+    })
 
   }
 
@@ -36,7 +39,7 @@ class HeaderUserBase extends React.Component<Props> {
         <div className="rightSection">
 
           <div className='signOutButton' >
-            <button onClick={this.props.Firebase!.doSignOut}>Cerrar Sesión</button> 
+            <button onClick={this.handleClick}>Cerrar Sesión</button> 
           </div>
 
           <div className='userAvatar'>
