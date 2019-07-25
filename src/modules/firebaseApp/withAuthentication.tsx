@@ -2,17 +2,18 @@ import React from 'react';
 import authContext from './authContext';
 import {withFirebase} from './index';
 import Firebase from '../app/components/RouterGroupAuthUser/Pages/utils/firebaseApp';
-import withRouter from 'react-router-dom';
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 
 
 
-interface Props {
+
+interface Props extends RouteComponentProps {
     Firebase : Firebase
     
 }
 
 const withAuthentication = (Component: React.ComponentType<any>) => {
-class withAuthenticationBase extends React.Component<Props> {
+class withAuthenticationBase extends React.Component<Props > {
 
     listener: any;
 
@@ -27,7 +28,10 @@ class withAuthenticationBase extends React.Component<Props> {
             if(authUser) {
                 this.setState({authUser, vanish: ''})
             } else {
-                this.setState({authUser : null, vanish: ''}) 
+                this.setState({authUser : null, vanish: ''})
+                if(this.props.location.pathname !== '/') {
+                    this.props.history.push('/') 
+                }
                 
             }
              
@@ -48,7 +52,7 @@ class withAuthenticationBase extends React.Component<Props> {
     }
 }
 
-return withFirebase(withAuthenticationBase);
+return withRouter(withFirebase(withAuthenticationBase)); 
 } 
 
 export default withAuthentication;

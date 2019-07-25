@@ -18,12 +18,12 @@ const App: React.FC = (props: any) => {
     return (
       <div className="App">
         
-          <BrowserRouter>
+          
             <AuthUserContext.Consumer>
              {authUser => authUser ? <RouterGroupAuthUser/> : <TransitionGroupNonAuthUser vanish={props.vanish} />}  
             </AuthUserContext.Consumer>
             
-          </BrowserRouter>
+          
     
       </div>
     );

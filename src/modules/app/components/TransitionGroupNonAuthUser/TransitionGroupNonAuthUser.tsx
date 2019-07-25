@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect, RouteComponentProps} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
 import './TransitionGroupNonAuthUser.scss';
 
+
 //Order in <Routes> is important
-interface Props {
+interface Props  {
   vanish : undefined | string
 }
  

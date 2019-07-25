@@ -39,7 +39,7 @@ class HeaderUserBase extends React.Component<Props> {
         <div className="rightSection">
 
           <div className='signOutButton' >
-            <button onClick={this.handleClick}>Cerrar Sesión</button> 
+            <button onClick={this.props.Firebase!.doSignOut}>Cerrar Sesión</button> 
           </div>
 
           <div className='userAvatar'>
