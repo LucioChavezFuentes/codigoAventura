@@ -55,12 +55,12 @@ class SignUpFormBase extends React.Component<Props, State>  {
             this.props.Firebase!.doCreateUserWithEmailAndPassword(email, passwordOne)
 
                 .then((authUser: any) => {
-                    this.props.Firebase!.user(authUser.user.uid).set(email)
+                    this.props.Firebase!.user(authUser.user.uid).set({email}); 
                 })
 
                 .then((authUser: any) => {
                     this.setState({ ...initialState });
-                    this.props.history.push(ROUTES.HOME)
+                    this.props.history.push(ROUTES.LANDING) 
                 })
                 .catch((error: any) => {
                     this.setState({ error });

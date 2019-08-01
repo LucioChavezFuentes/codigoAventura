@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import HeaderUser from '../utilsComponents/HeaderUser/HeaderUser';
-import {AuthUserContext, withAuthentication} from '../utils/firebaseApp';
+import Firebase, {AuthUserContext, withFirebase, withAuthUser} from '../utils/firebaseApp';
 
 import brace from 'brace';
 import AceEditor from 'react-ace';
@@ -8,19 +8,36 @@ import AceEditor from 'react-ace';
 import 'brace/mode/javascript';
 import 'brace/theme/terminal';
 
+interface Props {
+  Firebase : Firebase
+  authUser : firebase.User
+}
 
 
-
-const HomePage: React.FC = () => {
+const HomePage: React.FC<Props> = (props) => {
 
     const [code, setCode] = useState<string>('');
     const [logValue, setLogValue] = useState('');
+
+    useEffect(() => {
+      props.Firebase.userCode(props.authUser.uid).on('value' , snapshot => {
+        let userCode = snapshot.val();
+
+        if(userCode) {
+          setCode(userCode.code)
+        } 
+
+        
+
+      })
+    })
 
     function handleChange(newValue: string) {
       setCode(newValue); 
     }
 
     function handleClick() {
+      props.Firebase.userCode(props.authUser.uid).set({code})
       eval(code) 
     }
 
@@ -34,13 +51,13 @@ const HomePage: React.FC = () => {
   })();
 
     return(
-      <AuthUserContext.Consumer>{authUser => ( 
+      
         
         <div>
-          <HeaderUser authUser={authUser} />
+          <HeaderUser authUser={props.authUser} />
 
           <div className='titleClass'>
-            <p>Prográmale aquí chavo con email {authUser!.email} </p>
+            <p>Prográmale aquí chavo con email {props.authUser.email} </p>
           </div>
 
           <div className='codeEditor'>
@@ -65,9 +82,9 @@ const HomePage: React.FC = () => {
 
         </div>
 
-        )}
-      </AuthUserContext.Consumer>
+        
+     
     )
 }
 
-export default HomePage;
+export default withFirebase(withAuthUser(HomePage));

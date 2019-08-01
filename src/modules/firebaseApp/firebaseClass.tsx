@@ -45,10 +45,11 @@ class Firebase {
 
     //User API
     //Presiona ALT + } para ``
-    user = (id:number) => this.db.ref(`users/${id}`);
-    
+    user = (id:string) => this.db.ref(`users/${id}`);
+
     users = () => this.db.ref(`users/`);
     
+    userCode = (id:string) => this.db.ref(`users/${id}/code`);
 }
 
 export default Firebase;
