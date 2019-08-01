@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Route, Switch, Redirect, RouteComponentProps} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
@@ -20,7 +20,7 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
 
   useEffect( () => {
     setVanish('');
-  }); 
+  },[]);  
   
   /*let className : string; 
   if(vanish === true) {

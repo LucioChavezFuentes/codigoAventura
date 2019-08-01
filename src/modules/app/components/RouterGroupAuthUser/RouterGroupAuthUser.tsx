@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import * as ROUTES from '../RouterGroupAuthUser/constants/routes'
 import HomePage from '../RouterGroupAuthUser/Pages/HomePage/HomePage'
 
@@ -16,7 +16,7 @@ const RouterGroupAuthUser: React.FC = () => {
             <Switch>
                 
                 
-                <Route path={'/'} component={HomePage} exact  />
+                <Route path={'/'} component={HomePage} exact  /> 
 
                 
 

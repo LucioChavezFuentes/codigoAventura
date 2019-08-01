@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import HeaderUser from '../utilsComponents/HeaderUser/HeaderUser';
-import Firebase, {AuthUserContext, withFirebase, withAuthUser} from '../utils/firebaseApp';
+import Firebase, {withFirebase, withAuthUser} from '../utils/firebaseApp';
 
 import brace from 'brace';
 import AceEditor from 'react-ace';
@@ -39,14 +39,16 @@ const HomePage: React.FC<Props> = (props) => {
     function handleClick() {
       props.Firebase.userCode(props.authUser.uid).set({code})
       //TODO: Find a safer way than eval to render code.
-      eval(code) 
+      eval(code).catch((error: any) => {
+        console.log(error);
+      }) 
     }
 
     (function(){
       var oldLog = console.log;
       console.log = function (message: string) {
           //TODO: If multiple console logs are written make sure all of them appear.
-          setLogValue(message)
+          setLogValue(message);
           //@ts-ignore
           oldLog.apply(console, arguments);
       };
