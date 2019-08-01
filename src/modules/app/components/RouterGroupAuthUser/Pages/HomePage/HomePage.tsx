@@ -20,17 +20,17 @@ const HomePage: React.FC<Props> = (props) => {
     const [logValue, setLogValue] = useState('');
 
     useEffect(() => {
-      props.Firebase.userCode(props.authUser.uid).on('value' , snapshot => {
+      props.Firebase.userCode(props.authUser.uid).once('value' , snapshot => {
         let userCode = snapshot.val();
 
         if(userCode) {
-          setCode(userCode.code)
+          setCode(userCode.code);
         } 
 
         
 
       })
-    })
+    }, [props.authUser.uid]);  
 
     function handleChange(newValue: string) {
       setCode(newValue); 
@@ -38,12 +38,14 @@ const HomePage: React.FC<Props> = (props) => {
 
     function handleClick() {
       props.Firebase.userCode(props.authUser.uid).set({code})
+      //TODO: Find a safer way than eval to render code.
       eval(code) 
     }
 
     (function(){
       var oldLog = console.log;
       console.log = function (message: string) {
+          //TODO: If multiple console logs are written make sure all of them appear.
           setLogValue(message)
           //@ts-ignore
           oldLog.apply(console, arguments);
