@@ -1,44 +1,56 @@
 .header {
-    
+    position: sticky;
     width: 100%;
     border-bottom: 1px solid seashell;
     height: 89px;
-    right:0;
     background-color: white;
     z-index: 1;
     top: 0;
-    
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+    display: inline-block;
 }
 
 .leftSection {
-    float: left;
-    color: rgb(0, 135, 197);
     
-    padding: 30px;
+    color: rgb(0, 135, 197);
     text-align: center;
     font-family: Helvetica;
+    display: inline-block;
+    
 }
 
 .leftSection a {
     color: rgb(0, 135, 197);
     text-decoration: none;
-    padding: 10px;
+    
 }
 
 .rightSection {
     float: right;
-    color: rgb(0, 135, 197);
-    
-    padding: 30px;
     text-align: center;
     font-family: Helvetica;
+    display: inline-flex;
 }
 
 .rightSection a {
     
-    color: rgb(0, 135, 197);
     text-decoration: none;
-    padding: 30px;
     text-align: center;
-    font-family: Helvetica;
+    
+    
 }
+
+
+.rightSection .signUpLink {
+    border: 1px purple;
+    background-color: rgb(168, 52, 184);
+    border-radius: 0.8rem;
+    padding:  0.5rem;
+    
+}
+
+.signIn{
+    padding: 0.5rem;
+    
+}
+

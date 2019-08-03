@@ -1,6 +1,6 @@
 import React from 'react';
-import './Header.scss'
-import * as ROUTES from '../../../constants/routes'
+import './Header.scss';
+import * as ROUTES from '../../../constants/routes';
 
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 
@@ -10,6 +10,8 @@ interface Props extends RouteComponentProps  {
   match: any
   //TODO: Investigate the withRouter Props Types.
 }
+
+const signUpLink = 'signUpLink';
 
 
 
@@ -25,7 +27,9 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         </div>
 
         <div className="rightSection">
-          <NavLink to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
+          <div className={signUpLink}>
+            <NavLink style={{color:'white'}}   to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
+          </div>
         </div>
       </div>
 
@@ -36,11 +40,13 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
     return (<div className="header">
       <div className="leftSection">
-        <NavLink to={ROUTES.LANDING}>Código Aventura</NavLink>
+        <NavLink  to={ROUTES.LANDING}>Código Aventura</NavLink>
       </div>
 
       <div className="rightSection">
-        <NavLink to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+        <div className='signIn'>
+          <NavLink  to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+        </div>
       </div>
     </div>)
 
@@ -56,9 +62,14 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
       </div>
 
       <div className="rightSection">
-        <NavLink to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
-        <NavLink to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
+        <div className='signIn'>
+          <NavLink to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+        </div>
+        
 
+        <div className={signUpLink}>
+          <NavLink style={{color:'white'}}  to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
+        </div>
       </div>
     </div>)
   }

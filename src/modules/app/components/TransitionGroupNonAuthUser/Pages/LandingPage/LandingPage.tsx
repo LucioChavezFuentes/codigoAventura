@@ -8,10 +8,13 @@ import Header from '../utilsComponents/Header/Header'
 const LandingPage = () => {
 
     return (
-        <div className='page'>
-            <Header  />
-            <div className='landing-page'> 
+        
             
+        <div className='landing-page'> 
+            <Header  />
+
+            <div className='landing-content'>
+
 
                 <div className='greeting'>
                     <div>
@@ -32,10 +35,12 @@ const LandingPage = () => {
                     
 
                 </div>
+
+                </div>
                 
                 
             </div>
-        </div>
+        
 
         
     )

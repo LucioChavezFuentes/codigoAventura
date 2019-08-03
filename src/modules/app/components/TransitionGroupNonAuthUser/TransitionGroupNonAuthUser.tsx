@@ -31,6 +31,7 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
     
     return(
       <div className={props.vanish}> 
+        <div className='page'>
 
         <Route 
 // tslint:disable-next-line: jsx-no-multiline-js
@@ -60,6 +61,7 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
                 </TransitionGroup>
                 )} 
           />
+          </div>
         
       </div>
     ) 
