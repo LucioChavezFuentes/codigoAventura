@@ -7,26 +7,43 @@
     z-index: 1;
     top: 0;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-    display: inline-block;
+    
+    
+    
 }
+
+/*.header-container {
+    min-height: 4rem;
+    padding: .65rem 0;
+    height: 100%;
+    
+}*/
 
 .leftSection {
     
     color: rgb(0, 135, 197);
     text-align: center;
     font-family: Helvetica;
-    display: inline-block;
+    display: inline-flex;
     
+}
+
+.logo {
+    display: inline;
 }
 
 .leftSection a {
     color: rgb(0, 135, 197);
     text-decoration: none;
+    padding: 0.5rem;
+    margin: auto 0.1rem;
     
 }
 
+
+
 .rightSection {
-    float: right;
+    
     text-align: center;
     font-family: Helvetica;
     display: inline-flex;
@@ -36,7 +53,7 @@
     
     text-decoration: none;
     text-align: center;
-    
+    margin: auto 0.1rem;
     
 }
 

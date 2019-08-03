@@ -22,8 +22,10 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
     return (
 
       <div className="header">
+        
+
         <div className="leftSection">
-          <NavLink to={ROUTES.LANDING}>Código Aventura</NavLink>
+            <NavLink  to={ROUTES.LANDING}>Código Aventura</NavLink>
         </div>
 
         <div className="rightSection">
@@ -53,6 +55,9 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
   } else {
 
     return (<div className="header">
+      <div className='header-container'>
+
+      
       <div className="leftSection">
         <NavLink to={ROUTES.LANDING}>Código Aventura</NavLink>
         {/* Check these Links for further implementation
@@ -70,6 +75,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         <div className={signUpLink}>
           <NavLink style={{color:'white'}}  to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
         </div>
+      </div>
       </div>
     </div>)
   }
