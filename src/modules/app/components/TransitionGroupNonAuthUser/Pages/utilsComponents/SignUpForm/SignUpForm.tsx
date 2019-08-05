@@ -59,8 +59,6 @@ class SignUpFormBase extends React.Component<Props, State>  {
                 .then((authUser: any) => {
                      
                     this.props.Firebase!.user(authUser.user.uid).set({email});
-                    
-                     
                 })
 
                 .then((authUser: any) => {

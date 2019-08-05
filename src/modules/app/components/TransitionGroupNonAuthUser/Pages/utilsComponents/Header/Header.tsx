@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.scss';
 import * as ROUTES from '../../../constants/routes';
+import {Button} from 'react-bootstrap';
 
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 
@@ -25,7 +26,9 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         
 
         <div className="leftSection">
-            <NavLink  to={ROUTES.LANDING}>Código Aventura</NavLink>
+            <NavLink  to={ROUTES.LANDING}>
+              <Button variant='info'>Código Aventura</Button>
+            </NavLink>
         </div>
 
         <div className="rightSection">
@@ -42,12 +45,14 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
     return (<div className="header">
       <div className="leftSection">
-        <NavLink  to={ROUTES.LANDING}>Código Aventura</NavLink>
+        <NavLink  to={ROUTES.LANDING}>
+          <Button variant='info'>Código Aventura</Button>
+        </NavLink>
       </div>
 
       <div className="rightSection">
         <div className='signIn'>
-          <NavLink  to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+          <NavLink style={{color:'black'}}  to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
         </div>
       </div>
     </div>)
@@ -59,7 +64,9 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
       
       <div className="leftSection">
-        <NavLink to={ROUTES.LANDING}>Código Aventura</NavLink>
+        <NavLink to={ROUTES.LANDING}>
+          <Button variant='info'>Código Aventura</Button>
+        </NavLink>
         {/* Check these Links for further implementation
           <NavLink to='/about' > About </NavLink>
                 <NavLink to='/contact'> Contact </NavLink>*/}
@@ -68,7 +75,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
       <div className="rightSection">
         <div className='signIn'>
-          <NavLink to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+          <NavLink style={{color:'black'}} to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
         </div>
         
 

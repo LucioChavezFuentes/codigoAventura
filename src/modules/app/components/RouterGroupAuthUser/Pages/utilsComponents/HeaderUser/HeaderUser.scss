@@ -2,19 +2,21 @@
     
     width: 100%;
     border-bottom: 1px solid seashell;
-    height: 89px;
-    right:0;
+    height: 5rem;
     background-color: white;
     z-index: 1;
     top: 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
     
 }
 
 .leftSection {
+    position: relative;
+    bottom: 0.5rem;
     float: left;
     color: rgb(0, 135, 197);
-    
-    padding: 30px;
+    margin: auto 0;
+    padding: 1.4rem;
     text-align: center;
     font-family: Helvetica;
 }
@@ -26,12 +28,18 @@
 }
 
 .rightSection {
+    position: relative;
+    bottom: 0.5rem;
     float: right;
     color: rgb(0, 135, 197);
-    
-    padding: 30px;
+    margin: auto 0;
+    padding: 1.8rem;
     text-align: center;
     font-family: Helvetica;
+
+    div {
+        padding: 0 1rem;
+    }
 }
 
 .rightSection a {
