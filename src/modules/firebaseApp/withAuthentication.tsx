@@ -29,9 +29,9 @@ class withAuthenticationBase extends React.Component<Props > {
                 this.setState({authUser, vanish: ''})
             } else {
                 this.setState({authUser : null, vanish: ''})
-                if(this.props.location.pathname !== '/') {
+                /*if(this.props.location.pathname === '/home') {
                     this.props.history.push('/') 
-                }
+                }*/
                 
             }
              

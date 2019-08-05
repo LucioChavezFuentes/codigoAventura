@@ -48,22 +48,29 @@ class SignUpFormBase extends React.Component<Props, State>  {
 
     state : State = {...initialState}
 
+    
+
     isValidFormSubmit = () => {
         const { passwordMatch, validEmail, passwordOne, email } = this.state;
         if (passwordMatch && validEmail) {
-            this.setState({ validatedForm: true })
+            this.setState({ validatedForm: true });
             this.props.Firebase!.doCreateUserWithEmailAndPassword(email, passwordOne)
 
                 .then((authUser: any) => {
-                    this.props.Firebase!.user(authUser.user.uid).set({email}); 
+                     
+                    this.props.Firebase!.user(authUser.user.uid).set({email});
+                    
+                     
                 })
 
                 .then((authUser: any) => {
-                    this.setState({ ...initialState });
-                    this.props.history.push(ROUTES.LANDING) 
+                    
+                    this.setState({ ...initialState }); 
+                    this.props.history.push(ROUTES.HOME);    
                 })
                 .catch((error: any) => {
-                    this.setState({ error });
+                    this.setState({ validatedForm: false });
+                    this.setState({ error }); 
                 });
 
 

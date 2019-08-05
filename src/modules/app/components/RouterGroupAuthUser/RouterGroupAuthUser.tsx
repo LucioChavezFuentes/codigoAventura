@@ -16,7 +16,7 @@ const RouterGroupAuthUser: React.FC = () => {
             <Switch>
                 
                 
-                <Route path={'/'} component={HomePage} exact  /> 
+                <Route path={'/home'} component={HomePage} exact  /> 
 
                 
 

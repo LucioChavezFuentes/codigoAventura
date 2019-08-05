@@ -6,10 +6,13 @@
 
 .landing-content {
     position: relative;
-    top: 3rem;
+    top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 0rem;
+    padding: 0 2rem;
+
 }
 
 .greeting {
