@@ -45,8 +45,8 @@ class HeaderUserBase extends React.Component<Props> {
             <Button variant='outline-danger' onClick={this.handleClick}>Cerrar Sesión</Button>  
           </div> 
 
-          <div className='userAvatar'>
-            <img src='./graphic-3739607_1280.png' alt='myAvatar' />
+          <div className='userAvatarContainer'>
+            <img className='userAvatar' src='http://www.agecefrio.com.br/novo-site/app/icones/cadastro-azul.png' alt='myAvatar' />
           </div> 
  
         </div>

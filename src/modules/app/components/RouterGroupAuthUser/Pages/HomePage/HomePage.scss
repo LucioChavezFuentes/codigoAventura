@@ -1,0 +1,21 @@
+.titleClass {
+    position:relative;
+    top: 2rem;
+}
+
+.editorContainer {
+    position: relative;
+    top: 3rem;
+    margin: auto 5%;
+    display: flex;
+
+    .codeOutput {
+        margin: auto;
+    }
+
+}
+
+.buttonContainer {
+    position: relative;
+    top: 5rem;
+}

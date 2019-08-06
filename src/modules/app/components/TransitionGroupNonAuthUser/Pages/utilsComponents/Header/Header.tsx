@@ -33,7 +33,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
         <div className="rightSection">
           <div className={signUpLink}>
-            <NavLink style={{color:'white'}}   to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
+            <NavLink  style={{color:'white'}}   to={ROUTES.SIGN_UP}>Resgístrate</NavLink>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
       <div className="rightSection">
         <div className='signIn'>
-          <NavLink style={{color:'black'}}  to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+          <NavLink  style={{color:'black'}}  to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
         </div>
       </div>
     </div>)
@@ -75,7 +75,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
       <div className="rightSection">
         <div className='signIn'>
-          <NavLink style={{color:'black'}} to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
+          <NavLink style={{color:'black', fontWeight:'bold'}} to={ROUTES.SIGN_IN}>Iniciar Sesión</NavLink>
         </div>
         
 
