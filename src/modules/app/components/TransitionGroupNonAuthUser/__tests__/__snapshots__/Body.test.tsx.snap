@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the landing page without crashing 1`] = `
+<div>
+  <div
+    className="page"
+  >
+    <div>
+      <div
+        className="landing-page"
+      >
+        <div
+          className="header"
+        >
+          <div
+            className="header-container"
+          >
+            <div
+              className="leftSection"
+            >
+              <a
+                aria-current="page"
+                className="active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                <button
+                  className="btn btn-info"
+                  disabled={false}
+                  type="button"
+                >
+                  Código Aventura
+                </button>
+              </a>
+            </div>
+            <div
+              className="rightSection"
+            >
+              <div
+                className="signIn"
+              >
+                <a
+                  aria-current={null}
+                  href="/signin"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Iniciar Sesión
+                </a>
+              </div>
+              <div
+                className="signUpLink"
+              >
+                <a
+                  aria-current={null}
+                  href="/signup"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "color": "white",
+                    }
+                  }
+                >
+                  Resgístrate
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="landing-content"
+        >
+          <div
+            className="greeting"
+          >
+            <div>
+              <p>
+                !Cualquiera puede programar!
+              </p>
+              <p>
+                Es más que una carrera... Es una aventura.
+              </p>
+            </div>
+            <div>
+              <p>
+                Y aprender aquí está papita.
+              </p>
+            </div>
+          </div>
+          <div
+            className="registration"
+          >
+            <div>
+              <form
+                className="formComponent"
+                noValidate={true}
+                onSubmit={[Function]}
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="emailWord form-label"
+                    htmlFor="inputEmail"
+                  >
+                    Email o Correo Electrónico
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    id="inputEmail"
+                    name="email"
+                    onChange={[Function]}
+                    required={true}
+                    type="email"
+                    value=""
+                  />
+                  <div
+                    className="invalid-feedback"
+                  >
+                    Can't be blank
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="inputPasswordOne"
+                  >
+                    Contraseña
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    id="inputPasswordOne"
+                    name="passwordOne"
+                    onChange={[Function]}
+                    required={true}
+                    type="password"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="form-label"
+                    htmlFor="inputPasswordTwo"
+                  >
+                    Confirma tu contraseña.
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    id="inputPasswordTwo"
+                    name="passwordTwo"
+                    onChange={[Function]}
+                    required={true}
+                    type="password"
+                    value=""
+                  />
+                  <div
+                    className="invalid-feedback"
+                  >
+                    La contraseña tiene que ser de al menos 6 caracteres.
+                  </div>
+                </div>
+                <button
+                  className="submit-btn btn btn-primary btn-block"
+                  disabled={true}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

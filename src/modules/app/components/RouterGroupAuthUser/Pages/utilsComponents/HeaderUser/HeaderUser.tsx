@@ -4,7 +4,7 @@ import * as ROUTES from '../../../constants/routes';
 import Firebase, {withFirebase} from '../../utils/firebaseApp';
 import {Button} from 'react-bootstrap';
 
-import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
+import { NavLink, withRouter, RouteComponentProps} from 'react-router-dom';
 
 interface Props extends RouteComponentProps  {
   Firebase : Firebase | null

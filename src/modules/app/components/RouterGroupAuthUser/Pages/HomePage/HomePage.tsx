@@ -2,18 +2,18 @@ import React, {useState, useEffect} from 'react';
 import HeaderUser from '../utilsComponents/HeaderUser/HeaderUser';
 import Firebase, {withFirebase, withAuthUser} from '../utils/firebaseApp';
 import './HomePage.scss';
-import brace from 'brace';
 import AceEditor from 'react-ace';
 import {Button} from 'react-bootstrap';
 
-import 'brace/mode/javascript';
-import 'brace/theme/terminal';
-
-interface Props {
+import "ace-builds/src-min-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/theme-terminal";
+import "ace-builds/src-noconflict/snippets/javascript";
+import "ace-builds/src-noconflict/mode-javascript";
+ 
+interface Props { 
   Firebase : Firebase
   authUser : firebase.User
 }
-
 
 const HomePage: React.FC<Props> = (props) => {
 
@@ -28,8 +28,6 @@ const HomePage: React.FC<Props> = (props) => {
           setCode(userCode.code);
         } 
 
-        
-
       })
     }, [props.authUser.uid]);  
 
@@ -38,7 +36,7 @@ const HomePage: React.FC<Props> = (props) => {
     }
 
     function handleClick() {
-      props.Firebase.user(props.authUser.uid).set({code})
+      props.Firebase.user(props.authUser.uid).update({code})
       //TODO: Find a safer way than eval to render code.
       try{
         eval(code)
@@ -48,10 +46,6 @@ const HomePage: React.FC<Props> = (props) => {
           alert(e.message);
         }
       } 
-
-     
-      
-      
     }
 
     (function(){
@@ -78,12 +72,17 @@ const HomePage: React.FC<Props> = (props) => {
 
             <div className='codeEditor'>
               <AceEditor
+              //WARNING: Console Error: Refused to execute script from 'http://localhost:3000/worker-javascript.js' because its MIME type ('text/html') is not executable.
+              //TODO: Find a solution to this warning.
                 mode="javascript"
                 theme="terminal"
                 value={code}
                 onChange={handleChange}
-                name="UNIQUE_ID_OF_DIV"
+                name="user-code-editor"
                 editorProps={{ $blockScrolling: true }}
+                enableBasicAutocompletion={true}
+                enableLiveAutocompletion={true}
+                enableSnippets={true}
               />
             </div>
 

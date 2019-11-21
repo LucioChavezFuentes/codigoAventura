@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+//import { CSSTransition } from 'react-transition-group';
 import TransitionGroupNonAuthUser from '../TransitionGroupNonAuthUser';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+//import { render, fireEvent, cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
 it('renders the landing page without crashing', () => {

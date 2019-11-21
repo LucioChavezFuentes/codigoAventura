@@ -1,29 +1,36 @@
-import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { Route, Switch, useHistory, useLocation, Redirect} from 'react-router-dom';
 import * as ROUTES from '../RouterGroupAuthUser/constants/routes'
 import HomePage from '../RouterGroupAuthUser/Pages/HomePage/HomePage'
+import _ from 'underscore';
 
 
 
 
 const RouterGroupAuthUser: React.FC = () => {
 
-    //DO NOT UNCOMMENT It creates an infinte loop?
-    //history.push('/home'); <Redirect  to={ROUTES.HOME} />
-    
+    const history = useHistory();
+    const location = useLocation();
+/*
+    useEffect(() => {
+        if(_.contains(['/', '/signin', '/signup'], location.pathname)) {
+            history.push('/home') 
+        }
+        
+    })
+
+    */
     return(
         <div>
             <Switch>
                 
                 
-                <Route path={'/home'} component={HomePage} exact  /> 
+                <Route path={'/home'} component={HomePage} exact={true}  /> 
+
+                <Redirect to='/home' />
 
                 
-
-                
-
             </Switch>
-
 
             
             

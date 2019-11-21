@@ -11,7 +11,7 @@ interface appProps  {
 } 
 
 
-const App: React.FC = (props: any) => {  
+const App: React.FC<appProps> = (props: appProps) => {  
 
   
   
