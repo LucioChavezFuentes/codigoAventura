@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
@@ -8,19 +8,12 @@ import './TransitionGroupNonAuthUser.scss';
 
 //Order in <Routes> is important
 interface Props  {
-  vanish? : undefined | string
+  vanish? : undefined | string;
 }
  
 
 const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
 
-  
-
-  const [vanish, setVanish] = useState<string>('vanish')
-
-  useEffect( () => {
-    setVanish('');
-  },[]);  
     
     return(
       <div className={props.vanish}> 
@@ -36,7 +29,7 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
                     
                     <Switch location={location}>
                       
-                      <Route path={ROUTES.LANDING} component={LandingPage} exact  />
+                      <Route path={ROUTES.LANDING} component={LandingPage} exact={true}  />
 
                       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
 
@@ -46,10 +39,8 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
 
                       <Route path="/contact" component={ContactPage}  />
 
-
                       <Redirect to='/' />
 
-                      
                     </Switch>
                   </CSSTransition>
                 </TransitionGroup>
