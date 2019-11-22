@@ -1,12 +1,12 @@
 .header {
     
     width: 100%;
-    border-bottom: 1px solid seashell;
+    border-bottom: 0.1rem solid seashell;
     height: 5rem;
     background-color: white;
     z-index: 1;
     top: 0;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0.1rem 0.2rem 0 rgba(0,0,0,.1);
     
 }
 
@@ -24,7 +24,7 @@
 .leftSection a {
     color: rgb(0, 135, 197);
     text-decoration: none;
-    padding: 10px;
+    padding: 1rem;
 }
 
 .rightSection {
@@ -56,8 +56,60 @@
     
     color: rgb(0, 135, 197);
     text-decoration: none;
-    padding: 30px;
+    padding: 2rem;
     text-align: center;
     font-family: Helvetica;
 }
 
+@media only screen and (max-width: 600px) {
+    .leftSection {
+        position: relative;
+        top: 0.1rem;
+        
+        color: rgb(0, 135, 197);
+        margin: auto 0;
+        padding: 0.1rem;
+        text-align: center;
+        font-family: Helvetica;
+    }
+
+    .leftSection a {
+        color: rgb(0, 135, 197);
+        text-decoration: none;
+        padding: 0.1rem;
+    }
+
+    .rightSection {
+        position: relative;
+        top: 0.1rem;
+        
+        color: rgb(0, 135, 197);
+        margin: auto 0;
+        padding: 0.1rem;
+        text-align: center;
+        font-family: Helvetica;
+    
+        div {
+            padding: 0 1rem;
+        }
+    
+        
+    
+        .userAvatar {
+            position: relative;
+            bottom: 0.35rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: auto;
+        }
+    }
+    
+    .rightSection a {
+        
+        color: rgb(0, 135, 197);
+        text-decoration: none;
+        padding: 1rem;
+        text-align: center;
+        font-family: Helvetica;
+    }
+  }

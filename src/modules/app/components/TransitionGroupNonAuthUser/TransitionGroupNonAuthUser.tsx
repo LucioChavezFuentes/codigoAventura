@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Route, Switch, Redirect, useHistory} from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
