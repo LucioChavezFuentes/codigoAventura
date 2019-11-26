@@ -19,15 +19,21 @@
   color: white;
 }
 
-.App-link {
-  color: #a5e9fc;
-}
 
 body {
   background-color: #e3f9ff;
 }
 
+a {
+  text-decoration: none;
+}
 
+/* This will keep the text white in Material UI's Button with React-Router's <Link> when user hover mouse over it. 
+Looks like React BootStrap Library make conflict with Material UI: the text button change color when user hover it.*/
+a:hover{
+  text-decoration: none;
+  color: white;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -11,7 +11,7 @@ import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 const theme = createMuiTheme({
     palette: {
         primary: { 
-            main: '#2196f3'
+            main:'#0099ff'
         },
         secondary: {
             main: '#e65c00'
@@ -21,6 +21,7 @@ const theme = createMuiTheme({
 
 
 
+// tslint:disable-next-line: jsx-wrap-multiline
 ReactDOM.render(<FirebaseContext.Provider value={new Firebase()} >
                     <MuiThemeProvider theme={theme}>
                         <BrowserRouter>

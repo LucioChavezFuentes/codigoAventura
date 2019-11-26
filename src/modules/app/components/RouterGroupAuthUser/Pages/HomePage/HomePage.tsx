@@ -97,10 +97,6 @@ const HomePage: React.FC<Props> = (props) => {
               Correr
             </Button>
           </div>
-
-
-          
-
         </div>
 
         

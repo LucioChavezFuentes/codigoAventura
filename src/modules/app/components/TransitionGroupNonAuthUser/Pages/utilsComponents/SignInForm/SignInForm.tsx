@@ -20,7 +20,8 @@ interface State {
 	password: string
 	validForm: boolean
 	//TODO: investigate the type of error.
-	error: any
+	error: any,
+	loading: boolean
 }
 
 const initialState = {
@@ -29,7 +30,8 @@ const initialState = {
 	password: '',
 	validForm: false,
 	error: null,
-}
+	loading: false
+} 
 
 class SignInFormBase extends React.Component<Props, State>  {
 
@@ -52,6 +54,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 	}
 
 	handleSubmit = (event: React.FormEvent<any>) => {
+		this.setState({loading: true}) 
 		const form = event.currentTarget;
 		const { email } = this.state;
 
@@ -88,6 +91,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 			password,
 			error,
 			validForm,
+			loading
 		} = this.state;
 
 		const isBlank = email === '' && password === '';
@@ -124,7 +128,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 
 
 
-				<Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank} >
+				<Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank || loading} >
 					Submit
 				</Button>
 

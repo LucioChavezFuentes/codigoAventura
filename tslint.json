@@ -4,6 +4,7 @@
         "tslint-react"
     ],
     "jsRules": {
+        "jsx-no-multiline-js": false
     },
     "rules": {
         "member-access": false,
@@ -11,7 +12,8 @@
         "quotemark": false,
         "no-console": false,
         "semicolon": false,
-        "jsx-no-lambda": false
+        "jsx-no-lambda": false,
+        "jsx-no-multiline-js": false
     },
     "rulesDirectory": [
     ],
