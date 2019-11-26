@@ -48,7 +48,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 					this.props.history.push(ROUTES.HOME) 
 				})
 				.catch((error: any) => {
-					this.setState({ error });
+					this.setState({ error, loading: false });
 				});
 		}
 	}
@@ -98,6 +98,8 @@ class SignInFormBase extends React.Component<Props, State>  {
 		//The "validated" property in <Form> should only be setted to "true" when all the fields or inputs are valid.
 		//If you set it to true even if the "isInvalid" property in <Form.Control> is true, this will only display the <Form.Control.Feedback type="invalid">
 		//but the <Form.Control> will be displayed in greeen.
+		let authError = error ? error.code === 'auth/user not found' : null; 
+		let emailBlank = email === '';
 
 		return (
 

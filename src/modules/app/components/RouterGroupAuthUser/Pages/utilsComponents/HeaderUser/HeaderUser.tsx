@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './HeaderUser.scss';
 import * as ROUTES from '../../../constants/routes';
 import Firebase, {withFirebase} from '../../utils/firebaseApp';
-import {Link, withRouter, RouteComponentProps} from 'react-router-dom';
+import {Link, withRouter, RouteComponentProps, useHistory} from 'react-router-dom';
 
 //Material-UI Imports
 import AppBar from '@material-ui/core/AppBar';
@@ -43,20 +43,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Props extends RouteComponentProps  {
   Firebase : Firebase | null;
+  isCodeLoading: boolean
 }
 
 
  
 const HeaderUserBase : React.FC<Props> = (props: Props) => {
 
+  const history = useHistory();
   const classes = useStyles();
+
+  useEffect(() => { 
+        
+    
+}) 
   
   const handleClick = () => {
     
-    props.Firebase!.doSignOut().then(() => {
- 
-      props.history.push(ROUTES.SIGN_IN)
-    })
+    props.Firebase!.doSignOut()
   }
  
     return (
@@ -68,7 +72,7 @@ const HeaderUserBase : React.FC<Props> = (props: Props) => {
               Código Aventura
             </Typography>
             
-            <Button className={classes.logoutButton} color='secondary' variant='contained' onClick={handleClick}>
+            <Button className={classes.logoutButton} disabled={props.isCodeLoading}  color='secondary' variant='contained' onClick={handleClick}>
               Cerrar Sesión
             </Button>
 

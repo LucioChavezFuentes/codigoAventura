@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import {LandingPage , AboutPage, ContactPage, ErrorPage, SignUpPage, SignInPage} from './Pages';
 import * as ROUTES from './constants/routes'
 import './TransitionGroupNonAuthUser.scss';
+import _ from 'underscore';
 
 
 //Order in <Routes> is important
@@ -39,7 +40,7 @@ const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
 
                       <Route path="/contact" component={ContactPage}  />
 
-                      <Redirect to='/' />
+                      <Redirect to={ROUTES.SIGN_IN} />
 
                     </Switch>
                   </CSSTransition>

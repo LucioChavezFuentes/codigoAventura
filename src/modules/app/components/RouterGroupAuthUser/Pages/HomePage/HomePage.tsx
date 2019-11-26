@@ -17,19 +17,21 @@ interface Props {
 
 const HomePage: React.FC<Props> = (props) => {
 
+    const [isCodeLoading, setCodeLoading] = useState<boolean>(true);
     const [code, setCode] = useState<string>('');
     const [logValue, setLogValue] = useState('');
 
     useEffect(() => {
       props.Firebase.user(props.authUser.uid).once('value' , snapshot => {
         let userCode = snapshot.val();
-
-        if(userCode) {
+        //Warning: If component is Unmounted before setCode is settled there's gona be a memory leak. 
+        if(userCode && props.authUser) {
           setCode(userCode.code);
-        } 
+        }
+        setCodeLoading(false); 
 
       })
-    }, [props.authUser.uid]);  
+    }, []);  
 
     function handleChange(newValue: string) {
       setCode(newValue); 
@@ -62,7 +64,7 @@ const HomePage: React.FC<Props> = (props) => {
       
         
         <div>
-          <HeaderUser authUser={props.authUser} />
+          <HeaderUser authUser={props.authUser} isCodeLoading={isCodeLoading} />
 
           <div className='titleClass'>
             <p>Prográmale aquí chavo con email {props.authUser.email} </p>

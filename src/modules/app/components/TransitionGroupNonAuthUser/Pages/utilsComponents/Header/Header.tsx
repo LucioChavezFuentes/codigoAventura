@@ -30,12 +30,6 @@ const useStyles = makeStyles((theme: Theme) =>
        
     },
 
-    headerContainer: {
-      [theme.breakpoints.down('xs')]: { 
-        fontSize: '0.5rem',
-      }  
-    },
-
     titleContainer: { 
       flexGrow: 1,
       textAlign: 'start'
@@ -44,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.down('xs')]: { 
-        fontSize: '0.5rem',
+        fontSize: '0.6rem',
       } 
     },
  
@@ -87,7 +81,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
 
       <div className={classes.header}>
 
-        <AppBar className={classes.headerContainer} >  
+        <AppBar>  
           <Toolbar>
 
             <div className={classes.titleContainer}>

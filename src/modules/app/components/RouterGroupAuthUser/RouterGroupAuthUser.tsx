@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { Route, Switch, useHistory, useLocation, Redirect} from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, Redirect,} from 'react-router-dom';
 import * as ROUTES from '../RouterGroupAuthUser/constants/routes'
 import HomePage from '../RouterGroupAuthUser/Pages/HomePage/HomePage'
 import {withFirebase} from './Pages/utils/firebaseApp'
@@ -13,42 +13,23 @@ interface Props {
     
 }
 
-const RouterGroupAuthUser: React.FC<Props> = (props : Props) => {
+class RouterGroupAuthUser extends React.Component<Props> {
 
-    const history = useHistory();
-    const location = useLocation();
-
-    /*useEffect(() => {
-        const listener = props.Firebase.auth.onAuthStateChanged((authUser) => {
-
-        })
-
-        return () => {
-            listener();
-        }
-        
-    })*/
-
+    render() {
+        return(
+            <div>
+                <Switch>
+                    
+                    <Route path={'/home'} component={HomePage} exact={true}  /> 
     
-    return(
-        <div>
-            <Switch>
+                    <Redirect to='/home' />
+                    
+                </Switch>
                 
-                
-                <Route path={'/home'} component={HomePage} exact={true}  /> 
-
-                <Redirect to='/home' />
-
-                
-            </Switch>
-
+            </div>
             
-            
-            
-        </div>
-        
-        
-    )
+        )
+    }
 }
 
 
