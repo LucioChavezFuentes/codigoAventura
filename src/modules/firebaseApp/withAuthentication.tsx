@@ -4,9 +4,6 @@ import {withFirebase} from './index';
 import Firebase from '../app/components/RouterGroupAuthUser/Pages/utils/firebaseApp';
 import {withRouter, RouteComponentProps} from 'react-router-dom';
 
-
-
-
 interface Props extends RouteComponentProps {
     Firebase : Firebase
     

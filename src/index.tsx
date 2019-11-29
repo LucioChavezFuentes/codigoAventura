@@ -19,8 +19,6 @@ const theme = createMuiTheme({
       }
 })
 
-
-
 // tslint:disable-next-line: jsx-wrap-multiline
 ReactDOM.render(<FirebaseContext.Provider value={new Firebase()} >
                     <MuiThemeProvider theme={theme}>

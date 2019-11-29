@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme :Theme) => 
@@ -36,6 +35,12 @@ createStyles({
             margin: '1rem 0'
         }
      },
+
+    cardLink: {
+        '&:hover': {
+            color: 'black'
+        } 
+    }
 })
 )
 
@@ -67,9 +72,9 @@ const LandingPage = () => {
                     </CardContent>
 
                     <Typography variant='subtitle2' className='greeting-2'>
-                        ¿Ya tienes cuenta? Entra <Link to='signin'>aquí</Link>                      
+                        ¿Ya tienes cuenta? Entra <Link className={classes.cardLink} to='signin'>aquí.</Link>                       
                     </Typography>
-                         
+                          
                 </Paper>
 
                 

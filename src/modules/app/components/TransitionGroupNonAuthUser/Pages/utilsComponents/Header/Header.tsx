@@ -59,8 +59,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
     loginButtonLandingPage: {
       marginRight: theme.spacing(2),
-      
-      flexGrow: 1,
       '&:hover': {
         color: 'black' 
       },

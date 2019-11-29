@@ -8,13 +8,26 @@
     top: 3rem;
     margin: auto 5%;
     display: flex;
-
-    .codeOutput {
-        margin: auto;
-        font-weight: bolder;
-        font-size: 2rem;
-    }
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    
 }
+
+.codeOutput {
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(254, 255, 181);
+    font-weight: bolder;
+    font-size: 2rem;
+    border-style:  solid;
+    border-width: 1rem;
+    border-color: #d9d9d9;
+}
+
+.cardCode {
+    margin: 24% 5%;
+}
+
 
 .buttonContainer {
     position: relative;

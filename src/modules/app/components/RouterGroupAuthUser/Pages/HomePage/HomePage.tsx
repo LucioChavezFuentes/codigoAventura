@@ -9,6 +9,12 @@ import "ace-builds/src-min-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/theme-terminal";
 import "ace-builds/src-noconflict/snippets/javascript";
 import "ace-builds/src-noconflict/mode-javascript";
+
+//Material UI
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
  
 interface Props { 
   Firebase : Firebase
@@ -60,6 +66,10 @@ const HomePage: React.FC<Props> = (props) => {
       };
   })();
 
+    if(window.innerWidth < 360){
+
+    }
+
     return(
       
         
@@ -76,6 +86,7 @@ const HomePage: React.FC<Props> = (props) => {
               <AceEditor
               //WARNING: Console Error: Refused to execute script from 'http://localhost:3000/worker-javascript.js' because its MIME type ('text/html') is not executable.
               //TODO: Find a solution to this warning.
+                width='500px' 
                 mode="javascript"
                 theme="terminal"
                 value={code}
@@ -88,11 +99,12 @@ const HomePage: React.FC<Props> = (props) => {
               />
             </div>
 
-            <div className='codeOutput'>
-              {logValue}
-            </div>
-
-          </div>
+            <div className='codeOutput' > 
+                <Paper className='cardCode'>
+                    {logValue || `Escribe "console.log(Hola)" en el editor de código a la izquierda y ve el resultado.`}
+                </Paper>
+            </div> 
+          </div> 
 
           <div className='buttonContainer'>
             <Button variant='success' onClick={handleClick}>

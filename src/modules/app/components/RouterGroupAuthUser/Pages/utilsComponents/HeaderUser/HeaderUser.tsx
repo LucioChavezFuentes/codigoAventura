@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './HeaderUser.scss';
-import * as ROUTES from '../../../constants/routes';
 import Firebase, {withFirebase} from '../../utils/firebaseApp';
-import {Link, withRouter, RouteComponentProps, useHistory} from 'react-router-dom';
+import { withRouter, RouteComponentProps} from 'react-router-dom';
 
 //Material-UI Imports
 import AppBar from '@material-ui/core/AppBar';
@@ -10,7 +9,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
- 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,14 +48,8 @@ interface Props extends RouteComponentProps  {
  
 const HeaderUserBase : React.FC<Props> = (props: Props) => {
 
-  const history = useHistory();
   const classes = useStyles();
 
-  useEffect(() => { 
-        
-    
-}) 
-  
   const handleClick = () => {
     
     props.Firebase!.doSignOut()

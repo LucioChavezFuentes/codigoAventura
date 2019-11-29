@@ -50,6 +50,8 @@ class SignInFormBase extends React.Component<Props, State>  {
 				.catch((error: any) => {
 					this.setState({ error, loading: false });
 				});
+		} else {
+			this.setState({loading: false})
 		}
 	}
 
@@ -94,11 +96,11 @@ class SignInFormBase extends React.Component<Props, State>  {
 			loading
 		} = this.state;
 
-		const isBlank = email === '' && password === '';
 		//The "validated" property in <Form> should only be setted to "true" when all the fields or inputs are valid.
 		//If you set it to true even if the "isInvalid" property in <Form.Control> is true, this will only display the <Form.Control.Feedback type="invalid">
 		//but the <Form.Control> will be displayed in greeen.
-		let authError = error ? error.code === 'auth/user not found' : null; 
+		let authError = error ? error.code === "auth/user-not-found" : null; 
+		let passwordError = error ? error.code === "auth/wrong-password" : null;
 		let emailBlank = email === '';
 
 		return (
@@ -111,7 +113,10 @@ class SignInFormBase extends React.Component<Props, State>  {
 					<Form.Control required type="email" size='lg' value={email} name='email' onChange={this.handleChange} isInvalid={!validEmail} />
 
 					<Form.Control.Feedback type='invalid'>
-						{email === '' ? "Can't be blank" : "Por favor escribe un email válido, uno que tenga '@' y '.com "}
+						{emailBlank ? "Can't be blank" : 
+							authError ?
+							"El usuario no coincide con los registros, por favor revisa e inténtalo de nuevo." :
+							"Por favor escribe un email válido, uno que tenga '@' y '.com "}
 					</Form.Control.Feedback>
 				</Form.Group>
 
@@ -120,17 +125,19 @@ class SignInFormBase extends React.Component<Props, State>  {
 				<Form.Group controlId="inputPassword">
 					<Form.Label>Confirma tu contraseña.</Form.Label>
 
-					<Form.Control required type="password" size='lg' value={password} name='password' onChange={this.handleChange} isInvalid={!!error} />
-
-					<Form.Control.Feedback type='invalid'>
-						Contraseña Incorrecta
-			 		</Form.Control.Feedback>
+					<Form.Control required type="password" size='lg' value={password} name='password' onChange={this.handleChange} />
 
 				</Form.Group>
 
+				
 
+				{authError || passwordError ? 
+					<p style={{color: 'red'}}>El correo electrónio o la cantreseña no coinciden con nuestros registros, por favor revisa e inténtalo de nuevo.</p> :
+						''} 
 
-				<Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank || loading} >
+				
+
+				<Button className='submit-btn' variant="primary" type='submit' block disabled={loading} >
 					Submit
 				</Button>
 

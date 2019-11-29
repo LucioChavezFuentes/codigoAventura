@@ -6,15 +6,12 @@ import * as ROUTES from './constants/routes'
 import './TransitionGroupNonAuthUser.scss';
 import _ from 'underscore';
 
-
 //Order in <Routes> is important
 interface Props  {
   vanish? : undefined | string;
 }
- 
 
 const TransitionGroupNonAuthUser:React.FC<Props> = (props) => {
-
     
     return(
       <div className={props.vanish}> 
