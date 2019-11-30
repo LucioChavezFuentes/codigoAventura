@@ -13,19 +13,69 @@ import "ace-builds/src-noconflict/mode-javascript";
 //Material UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
  
 interface Props { 
   Firebase : Firebase
   authUser : firebase.User
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    titleClass: {
+      position:'relative',
+      top: '2rem'
+    },
+
+    editorContainer: {
+      position: 'relative',
+      top: '3rem',
+      margin: 'auto 5%',
+      display: 'flex',
+      flexFlow: 'wrap',
+      justifyContent: 'space-evenly',
+      
+    },
+
+    codeOutput: {
+      width: '50%',
+      margin: '0 auto',
+      backgroundColor: 'rgb(254, 255, 181)',
+      fontWeight: 'bolder',
+      fontSize: '2rem',
+      borderStyle:  'solid',
+      borderWidth: '1rem',
+      borderColor: '#d9d9d9',
+      [theme.breakpoints.down('xs')]: { 
+        width: '90%',
+        fontSize: '1rem', 
+      } 
+    },
+
+    cardCode: {
+      margin: '24% 5%',
+    },
+  
+  
+    buttonContainer: {
+      position: 'relative',
+      top: '5rem'
+    },
+  
+    codeEditor: {
+      borderStyle:  'solid',
+      borderWidth: '1rem',
+      borderColor: '#d9d9d9',
+    }
+  })
+)
+
 const HomePage: React.FC<Props> = (props) => {
 
     const [isCodeLoading, setCodeLoading] = useState<boolean>(true);
     const [code, setCode] = useState<string>('');
     const [logValue, setLogValue] = useState('');
+    const classes = useStyles();
 
     useEffect(() => {
       props.Firebase.user(props.authUser.uid).once('value' , snapshot => {
@@ -76,17 +126,17 @@ const HomePage: React.FC<Props> = (props) => {
         <div>
           <HeaderUser authUser={props.authUser} isCodeLoading={isCodeLoading} />
 
-          <div className='titleClass'>
+          <div className={classes.titleClass}>
             <p>Prográmale aquí chavo con email {props.authUser.email} </p>
           </div>
 
-          <div className='editorContainer'>
+          <div className={classes.editorContainer}>
 
-            <div className='codeEditor'>
+            <div className={classes.codeEditor}> 
               <AceEditor
               //WARNING: Console Error: Refused to execute script from 'http://localhost:3000/worker-javascript.js' because its MIME type ('text/html') is not executable.
               //TODO: Find a solution to this warning.
-                width='500px' 
+                width={window.innerWidth < 600 ? '300px' : '500px'}  
                 mode="javascript"
                 theme="terminal"
                 value={code}
@@ -99,14 +149,14 @@ const HomePage: React.FC<Props> = (props) => {
               />
             </div>
 
-            <div className='codeOutput' > 
-                <Paper className='cardCode'>
+            <div className={classes.codeOutput} > 
+                <Paper className={classes.cardCode}>
                     {logValue || `Escribe "console.log(Hola)" en el editor de código a la izquierda y ve el resultado.`}
                 </Paper>
             </div> 
           </div> 
 
-          <div className='buttonContainer'>
+          <div className={classes.buttonContainer}>
             <Button variant='success' onClick={handleClick}>
               Correr
             </Button>
