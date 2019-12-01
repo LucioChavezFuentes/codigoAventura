@@ -13,24 +13,30 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     header: {
-      
-      flexGrow: 4,
+      flexGrow: 1,
     },
     menuButton: {
       marginRight: theme.spacing(2),
     },
     title: {
-      flexGrow: 2,
-      textAlign: 'initial'
+      flexGrow: 1,
+      textAlign: 'initial',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '0.9rem',
+      } 
     },
     
     logoutButton: {
       marginRight: theme.spacing(5),
-      backgroundColor: '#ff9933'
+      backgroundColor: '#ff9933',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '0.7rem',
+        position: 'relative',
+        left: '30px',
+      }  
     },
     userAvatar: {
         
-        flexGrow: 1,
         position: 'relative',
         width: '3rem',
         height: '3rem',
