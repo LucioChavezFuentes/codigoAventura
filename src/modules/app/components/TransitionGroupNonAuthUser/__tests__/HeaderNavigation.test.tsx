@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
+import { createMemoryHistory, MemoryHistory } from 'history'
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
 import Header from '../Pages/utilsComponents/Header/Header'
@@ -16,10 +16,12 @@ const AppNavigation: React.FC = () => {
       <TransitionGroupNonAuthUser />
     </div>
   )
-
 }
 
-
+interface RouteHistory {
+  route?: string;
+  history?: MemoryHistory<any>;
+}
 
 // this is a handy function that I would utilize for any component
 // that relies on the router being in context
@@ -28,7 +30,7 @@ function renderWithRouter(ui: any,
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
 
-  } = {}
+  } : RouteHistory = {}
 ) {
   return {
     ...render(<Router history={history}>{ui}</Router>),

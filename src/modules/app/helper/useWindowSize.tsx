@@ -3,8 +3,11 @@ import _ from 'underscore';
 const events = new Set();
 const onResize = () => events.forEach((fn: any) => fn());
 
+interface Options {
+  throttleMs?: number;
+}
 
-const useWindowSize = (options: any = {}) => {
+const useWindowSize = (options: Options = {}) => {
   const { throttleMs = 100 } = options;
   const [size, setSize] = React.useState({
     width: process.browser && window.innerWidth,
