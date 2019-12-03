@@ -57,6 +57,22 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
 
+    loginButtonSignUpPage: {
+      [theme.breakpoints.down('xs')]: { 
+        fontSize: '0.6rem',
+      },
+
+      '&:hover': {
+        color: 'black' 
+      }
+    },
+
+    titleSignUpPage: {
+      [theme.breakpoints.down('xs')]: { 
+        fontSize: '0.7rem',
+      }
+    },
+
     loginButtonLandingPage: {
       marginRight: theme.spacing(2),
       '&:hover': {
@@ -109,12 +125,12 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         <Toolbar>
       
           <div className={classes.titleContainer}>
-              <Button className={classes.title} component={Link} to={ROUTES.LANDING} color='inherit'>
+              <Button className={classes.titleSignUpPage} component={Link} to={ROUTES.LANDING} color='inherit'>
                 Código Aventura  
               </Button>
             </div>
             
-            <Button className={classes.loginButton} component={Link} to={ROUTES.SIGN_IN} color='default' variant='contained'>   
+            <Button className={classes.loginButtonSignUpPage} component={Link} to={ROUTES.SIGN_IN} color='default' variant='contained'>   
               Iniciar Sesión
             </Button> 
               

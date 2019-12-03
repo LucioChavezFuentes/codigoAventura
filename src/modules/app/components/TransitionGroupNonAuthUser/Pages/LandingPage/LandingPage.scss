@@ -21,3 +21,10 @@
 .registration {
     font-size: 1.1rem;
 }
+
+@media screen and (max-width: 600px) {
+
+    .landing-content {
+        margin: 0 auto;
+    }
+}

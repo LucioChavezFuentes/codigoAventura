@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       textAlign: 'initial',
       [theme.breakpoints.down('xs')]: {
-        fontSize: '0.9rem',
+        fontSize: '0.8rem',
       } 
     },
     
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(5),
       backgroundColor: '#ff9933',
       [theme.breakpoints.down('xs')]: {
-        fontSize: '0.7rem',
+        fontSize: '0.55rem',
         position: 'relative',
         left: '30px',
       }  
@@ -50,8 +50,6 @@ interface Props extends RouteComponentProps  {
   isCodeLoading: boolean
 }
 
-
- 
 const HeaderUserBase : React.FC<Props> = (props: Props) => {
 
   const classes = useStyles();
@@ -83,7 +81,6 @@ const HeaderUserBase : React.FC<Props> = (props: Props) => {
       </div>
       )
   }
-
 
 const HeaderUser = withRouter(withFirebase(HeaderUserBase));
 export default HeaderUser;

@@ -7,3 +7,11 @@
    color: red;
    margin-top: 1rem;
 }
+
+@media screen and (max-width: 600px) {
+
+    .formComponent {
+        width: 15rem;
+        margin: 0 auto;
+    }
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Form, Button, FormControlProps } from 'react-bootstrap'
 import * as ROUTES from '../../../constants/routes';
-
 import './SignInForm.scss'
 import Firebase, { withFirebase } from '../../utils/firebaseApp'
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
+//Material UI
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 //TODO: make a dir of all interfaces needed in typescript.
 interface Props extends RouteComponentProps {
@@ -31,7 +32,20 @@ const initialState = {
 	validForm: false,
 	error: null,
 	loading: false
-} 
+}
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		formComponent: {
+			width: '23rem',
+    		margin: '0 auto',
+
+			[theme.breakpoints.down('xs')]: {
+				width: '1rem'
+			} 
+		}
+	})
+)
 
 class SignInFormBase extends React.Component<Props, State>  {
 
@@ -120,8 +134,6 @@ class SignInFormBase extends React.Component<Props, State>  {
 					</Form.Control.Feedback>
 				</Form.Group>
 
-
-
 				<Form.Group controlId="inputPassword">
 					<Form.Label>Confirma tu contraseña.</Form.Label>
 
@@ -129,13 +141,9 @@ class SignInFormBase extends React.Component<Props, State>  {
 
 				</Form.Group>
 
-				
-
 				{authError || passwordError ? 
 					<p style={{color: 'red'}}>El correo electrónio o la cantreseña no coinciden con nuestros registros, por favor revisa e inténtalo de nuevo.</p> :
 						''} 
-
-				
 
 				<Button className='submit-btn' variant="primary" type='submit' block disabled={loading} >
 					Submit

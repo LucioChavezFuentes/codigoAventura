@@ -20,19 +20,31 @@ createStyles({
         padding: '2rem',
 
         '& .greetingsContainer': {
-            padding: '2rem'
+            padding: '2rem',
         },
 
         '& .greeting-1': {
             margin: '2rem 0',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.9rem',
+              }
         },
 
         '& .greeting-2': {
-            margin: '1rem 0'
+            margin: '1rem 0',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.2rem',
+              }
         },
 
         '& .greeting-3': {
-            margin: '1rem 0'
+            margin: '1rem 0',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.2rem',
+              }
         },
 
         '& .greeting-4': {
@@ -52,23 +64,23 @@ createStyles({
     cardLink: {
         '&:hover': {
             color: 'black'
-        } 
+        }
     },
 
     registration: {
         fontSize: '1.1rem',
 
-        [theme.breakpoints.down('xs')]: { 
+        [theme.breakpoints.down('xs')]: {
             position: 'relative',
             top: '2rem',
           },
 
-        [theme.breakpoints.down('sm')]: { 
+        [theme.breakpoints.down('sm')]: {
             position: 'relative',
             top: '2rem',
           },
 
-        [theme.breakpoints.down('md')]: { 
+        [theme.breakpoints.down('md')]: {
             position: 'relative',
             top: '2rem', 
           } 
@@ -82,7 +94,6 @@ const LandingPage = () => {
 
     return (
         
-            
         <div className='landing-page'> 
             <Header  />
  
@@ -109,17 +120,13 @@ const LandingPage = () => {
                           
                 </Paper>
 
-                
-
                 <div className={classes.registration}> 
                 
                      <SignUpForm />  
 
                 </div>
-
-                </div>
-                
             </div>
+        </div>
         
     )
 }

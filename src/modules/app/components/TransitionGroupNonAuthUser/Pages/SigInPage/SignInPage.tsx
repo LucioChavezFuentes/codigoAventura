@@ -58,20 +58,8 @@ const useStyles = makeStyles((theme:Theme) =>
         },
 
         signInForm: {
-            [theme.breakpoints.down('xs')]: { 
-                position: 'relative',
-                top: '3rem'
-              },
-              
-            [theme.breakpoints.down('sm')]: { 
-                position: 'relative',
-                top: '3rem'
-              },
-
-            [theme.breakpoints.down('md')]: { 
-                position: 'relative',
-                top: '3rem'
-              } 
+            position: 'relative',
+            top: '3rem',
         }
     })   
 )

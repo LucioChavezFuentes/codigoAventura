@@ -88,7 +88,8 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: 'center',
       
       [theme.breakpoints.down('xs')]: {
-        padding: '5px',
+        fontSize: '1rem',
+        padding: '5px', 
       },
 
       [theme.breakpoints.down('sm')]: {
