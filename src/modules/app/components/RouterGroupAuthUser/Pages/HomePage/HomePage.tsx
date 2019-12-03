@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
 
     codeOutput: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: '50%',
       margin: '0 auto',
       backgroundColor: 'rgb(254, 255, 181)',
@@ -51,20 +54,54 @@ const useStyles = makeStyles((theme: Theme) =>
       borderStyle:  'solid',
       borderWidth: '1rem',
       borderColor: '#d9d9d9',
+
       [theme.breakpoints.down('xs')]: { 
+        position: 'relative',
+        top: '1rem',
         width: '90%',
-        margin: '20% auto',
-        fontSize: '1rem', 
-      } 
+        height: '150px',
+        margin: '0 auto',
+        fontSize: '1rem',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        position: 'relative',
+        top: '1rem',
+        width: '90%',
+        height: '150px',
+        margin: '0 auto',
+        fontSize: '1.5rem',
+      },
+      
+      [theme.breakpoints.down('md')]: {
+        position: 'relative',
+        top: '1rem',
+        width: '90%',
+        height: '150px',
+        margin: '0 auto',
+        fontSize: '1.5rem',
+      }
     },
 
     cardCode: {
-      margin: '24% 5%',
+      padding: '10px', 
+      textAlign: 'center',
+      
+      [theme.breakpoints.down('xs')]: {
+        padding: '5px',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '5px',
+      }
     },
   
     buttonContainer: {
       position: 'relative',
-      top: '5rem'
+      top: '5rem',
+      [theme.breakpoints.down('xs')]: {
+        top: '50px',
+      }
     },
   
     codeEditor: {
@@ -77,7 +114,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const HomePage: React.FC<Props> = (props) => {
 
-    const {width} = useWindowSize();
+    const {width, height} = useWindowSize();
     const [isCodeLoading, setCodeLoading] = useState<boolean>(true);
     const [code, setCode] = useState<string>('');
     const [logValue, setLogValue] = useState('');
@@ -138,7 +175,8 @@ const HomePage: React.FC<Props> = (props) => {
                 <AceEditor
                 //WARNING: Console Error: Refused to execute script from 'http://localhost:3000/worker-javascript.js' because its MIME type ('text/html') is not executable.
                 //TODO: Find a solution to this warning.
-                  width={width < 600 ? '300px' : '500px'}   
+                  width={width < 600 ? '300px' : '500px'}
+                  height={height < 900 ? '300px' : '500px'}
                   mode="javascript"
                   theme="terminal"
                   value={code}
@@ -153,13 +191,13 @@ const HomePage: React.FC<Props> = (props) => {
 
               <div className={classes.codeOutput} > 
                   <Paper className={classes.cardCode}>
-                      {logValue || `Escribe "console.log(Hola)" en el editor de código a la izquierda y ve el resultado.`}
+                      {logValue || `Escribe "console.log(Hola)" en el editor de código y ve el resultado.`}
                   </Paper>
               </div> 
             </div> 
 
             <div className={classes.buttonContainer}>
-              <Button variant='success' onClick={handleClick}>
+              <Button variant='success' onClick={handleClick} disabled={isCodeLoading}>
                 Correr
               </Button>
             </div>

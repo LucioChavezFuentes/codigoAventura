@@ -16,29 +16,62 @@ const useStyles = makeStyles((theme:Theme) =>
     createStyles({
         welcomeBack: {
             width: '50%',
-            margin: '0 auto'
+            margin: '0 auto',
+
+            [theme.breakpoints.down('xs')]: { 
+                width: '80%',
+              }
           
         },
 
         typoH3: {
             marginTop: '2rem',
-            marginBottom: '1rem' 
+            marginBottom: '1rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.5rem',
+              } 
         },
 
         typoH5: {
             marginTop: '1rem',
-            marginBottom: '1.5rem' 
+            marginBottom: '1.5rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1rem',
+              }  
         },
 
         typoLink: {
             marginTop: '1rem',
-            marginBottom: '1.5rem' 
+            marginBottom: '1.5rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '0.7rem',
+              }  
         },
         
         cardLink: {
             '&:hover': {
                 color: 'black'
             } 
+        },
+
+        signInForm: {
+            [theme.breakpoints.down('xs')]: { 
+                position: 'relative',
+                top: '3rem'
+              },
+              
+            [theme.breakpoints.down('sm')]: { 
+                position: 'relative',
+                top: '3rem'
+              },
+
+            [theme.breakpoints.down('md')]: { 
+                position: 'relative',
+                top: '3rem'
+              } 
         }
     })   
 )
@@ -70,7 +103,7 @@ const SignInPage = () => {
                      
                 </Paper>
 
-                <div className='signIn-registration'>
+                <div className={classes.signInForm}>
                 
                      <SignInForm />  
             

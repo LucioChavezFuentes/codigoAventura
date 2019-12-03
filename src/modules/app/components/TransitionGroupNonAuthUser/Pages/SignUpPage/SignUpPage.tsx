@@ -16,23 +16,39 @@ const useStyles = makeStyles((theme:Theme) =>
     createStyles({
         greeting: {
             width: '50%',
-            margin: '0 auto'
+            margin: '0 auto',
+
+            [theme.breakpoints.down('xs')]: { 
+                width: '80%',
+              }
           
         },
 
         typoH3: {
             marginTop: '2rem',
-            marginBottom: '1rem' 
+            marginBottom: '1rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.5rem',
+              } 
         },
 
         typoH5: {
             marginTop: '1rem',
-            marginBottom: '1.5rem' 
+            marginBottom: '1.5rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1rem',
+              } 
         },
 
         typoLink: {
             marginTop: '1rem',
-            marginBottom: '1.5rem' 
+            marginBottom: '1.5rem',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '0.7rem',
+              }  
         },
 
         cardLink: {
@@ -64,7 +80,7 @@ const SignUpPage = () => {
                     </Typography>
 
                     <Typography variant='subtitle1' className={classes.typoLink}>
-                        ¿Ya tienes cuenta? Inicia continua <Link className={classes.cardLink} to='/signin'>aquí.</Link> 
+                        ¿Ya tienes cuenta? Continua <Link className={classes.cardLink} to='/signin'>aquí.</Link> 
                     </Typography>
                      
             </Paper>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme :Theme) =>
 
 createStyles({
 
-     greetings: {
+    greetings: {
         padding: '2rem',
 
         '& .greetingsContainer': {
@@ -24,7 +24,7 @@ createStyles({
         },
 
         '& .greeting-1': {
-            margin: '2rem 0'
+            margin: '2rem 0',
         },
 
         '& .greeting-2': {
@@ -33,13 +33,45 @@ createStyles({
 
         '& .greeting-3': {
             margin: '1rem 0'
-        }
-     },
+        },
+
+        '& .greeting-4': {
+            margin: '1rem 0',
+            
+            [theme.breakpoints.down('xs')]: { 
+                position: 'relative',
+                bottom: '1rem',
+              }  
+        } 
+    },
+
+    greetingFour : { 
+        margin: '1rem 0',
+    },
 
     cardLink: {
         '&:hover': {
             color: 'black'
         } 
+    },
+
+    registration: {
+        fontSize: '1.1rem',
+
+        [theme.breakpoints.down('xs')]: { 
+            position: 'relative',
+            top: '2rem',
+          },
+
+        [theme.breakpoints.down('sm')]: { 
+            position: 'relative',
+            top: '2rem',
+          },
+
+        [theme.breakpoints.down('md')]: { 
+            position: 'relative',
+            top: '2rem', 
+          } 
     }
 })
 )
@@ -56,7 +88,7 @@ const LandingPage = () => {
  
             <div className='landing-content'>
 
-                <Paper>
+                <Paper >
                     <CardContent className={classes.greetings}>
                         <Typography variant='h3' className='greeting-1'>
                             !Cualquiera puede programar!                      
@@ -71,7 +103,7 @@ const LandingPage = () => {
                         </Typography> 
                     </CardContent>
 
-                    <Typography variant='subtitle2' className='greeting-2'>
+                    <Typography variant='subtitle2' className={classes.greetingFour}>
                         ¿Ya tienes cuenta? Entra <Link className={classes.cardLink} to='signin'>aquí.</Link>                       
                     </Typography>
                           
@@ -79,7 +111,7 @@ const LandingPage = () => {
 
                 
 
-                <div className='registration'>
+                <div className={classes.registration}> 
                 
                      <SignUpForm />  
 
