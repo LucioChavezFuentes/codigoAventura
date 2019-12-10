@@ -36,8 +36,6 @@ const initialState = {
   passwordTwo: '',
   validatedForm: false,  
   passwordMatch: true , 
-  
-   
   error: null,
 }
 
@@ -70,8 +68,6 @@ class SignUpFormBase extends React.Component<Props, State>  {
                     this.setState({ validatedForm: false });
                     this.setState({ error }); 
                 });
-
-
         }
     }
 
@@ -94,13 +90,6 @@ class SignUpFormBase extends React.Component<Props, State>  {
             event.preventDefault();
             event.stopPropagation();
           }
-          
-          
-        
-
-          
-      
-        
 
           /*else {
             this.setState({passwordMatch: false, validatedForm: false})
@@ -110,9 +99,6 @@ class SignUpFormBase extends React.Component<Props, State>  {
     
     } 
 
-    handleClick = () => {
-
-    }
     //TODO: types in reactBootStrap is incomplete, a proper type por event is still missing.; folllow this thread for further information: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16208
     handleChange = (event : React.FormEvent<FormControlProps>) : void => {
         // Type 'HTMLInputElement' as in event.target; follow this thread for further information: https://stackoverflow.com/questions/44321326/property-value-does-not-exist-on-type-eventtarget-in-typescript/44321394 
@@ -167,7 +153,7 @@ class SignUpFormBase extends React.Component<Props, State>  {
 
 
         <Form.Group controlId="inputPasswordTwo">
-            <Form.Label>Confirma tu contraseña.</Form.Label>
+            <Form.Label>Confirma tu contraseña</Form.Label>
             
             <Form.Control required  type="password"  size='lg' value={passwordTwo} name='passwordTwo' onChange={this.handleChange} isInvalid={!passwordMatch} />
 

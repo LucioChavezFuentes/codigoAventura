@@ -2,7 +2,7 @@ import React from 'react';
 import authContext from './authContext';
 import {withFirebase} from './index';
 import Firebase from '../app/components/RouterGroupAuthUser/Pages/utils/firebaseApp';
-import {withRouter, RouteComponentProps} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router-dom';
 
 interface Props extends RouteComponentProps {
     Firebase : Firebase
@@ -29,8 +29,7 @@ class withAuthenticationBase extends React.Component<Props > {
                 /*if(this.props.location.pathname === '/home') {
                     this.props.history.push('/') 
                 }*/ 
-            }
-             
+            } 
         })
     }
 
@@ -48,7 +47,7 @@ class withAuthenticationBase extends React.Component<Props > {
     }
 }
 
-return withRouter(withFirebase(withAuthenticationBase)); 
+return withFirebase(withAuthenticationBase); 
 } 
 
 export default withAuthentication;

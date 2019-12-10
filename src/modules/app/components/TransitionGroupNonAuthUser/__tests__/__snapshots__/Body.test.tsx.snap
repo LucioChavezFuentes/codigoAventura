@@ -10,91 +10,145 @@ exports[`renders the landing page without crashing 1`] = `
         className="landing-page"
       >
         <div
-          className="header"
+          className="makeStyles-header-5"
         >
-          <div
-            className="header-container"
+          <header
+            className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
           >
             <div
-              className="leftSection"
-            >
-              <a
-                aria-current="page"
-                className="active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                <button
-                  className="btn btn-info"
-                  disabled={false}
-                  type="button"
-                >
-                  Código Aventura
-                </button>
-              </a>
-            </div>
-            <div
-              className="rightSection"
+              className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
             >
               <div
-                className="signIn"
+                className="makeStyles-titleContainer-6"
               >
                 <a
-                  aria-current={null}
-                  href="/signin"
+                  aria-disabled={false}
+                  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-title-7 MuiButton-colorInherit"
+                  href="/"
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  style={
-                    Object {
-                      "color": "black",
-                      "fontWeight": "bold",
-                    }
-                  }
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span
+                    className="MuiButton-label"
+                  >
+                    Código Aventura
+                  </span>
+                  <span
+                    className="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <a
+                aria-disabled={false}
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-loginButtonLandingPage-12"
+                href="/signin"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <span
+                  className="MuiButton-label"
                 >
                   Iniciar Sesión
-                </a>
-              </div>
-              <div
-                className="signUpLink"
+                </span>
+                <span
+                  className="MuiTouchRipple-root"
+                />
+              </a>
+              <a
+                aria-disabled={false}
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-logoutButton-8 MuiButton-containedSecondary"
+                href="/signup"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onDragLeave={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                role="button"
+                tabIndex={0}
               >
-                <a
-                  aria-current={null}
-                  href="/signup"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "color": "white",
-                    }
-                  }
+                <span
+                  className="MuiButton-label"
                 >
-                  Resgístrate
-                </a>
-              </div>
+                  Regístrate
+                </span>
+                <span
+                  className="MuiTouchRipple-root"
+                />
+              </a>
             </div>
-          </div>
+          </header>
         </div>
         <div
           className="landing-content"
         >
           <div
-            className="greeting"
+            className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
           >
-            <div>
-              <p>
+            <div
+              className="MuiCardContent-root makeStyles-greetings-1"
+            >
+              <h3
+                className="MuiTypography-root greeting-1 MuiTypography-h3"
+              >
                 !Cualquiera puede programar!
-              </p>
-              <p>
+              </h3>
+              <h5
+                className="MuiTypography-root greeting-2 MuiTypography-h5"
+              >
                 Es más que una carrera... Es una aventura.
-              </p>
-            </div>
-            <div>
-              <p>
+              </h5>
+              <h5
+                className="MuiTypography-root greeting-3 MuiTypography-h5"
+              >
                 Y aprender aquí está papita.
-              </p>
+              </h5>
             </div>
+            <h6
+              className="MuiTypography-root makeStyles-greetingFour-2 MuiTypography-subtitle2"
+            >
+              ¿Ya tienes cuenta? Entra 
+              <a
+                className="makeStyles-cardLink-3"
+                href="/signin"
+                onClick={[Function]}
+              >
+                aquí.
+              </a>
+            </h6>
           </div>
           <div
-            className="registration"
+            className="makeStyles-registration-4"
           >
             <div>
               <form
@@ -152,7 +206,7 @@ exports[`renders the landing page without crashing 1`] = `
                     className="form-label"
                     htmlFor="inputPasswordTwo"
                   >
-                    Confirma tu contraseña.
+                    Confirma tu contraseña
                   </label>
                   <input
                     className="form-control form-control-lg"

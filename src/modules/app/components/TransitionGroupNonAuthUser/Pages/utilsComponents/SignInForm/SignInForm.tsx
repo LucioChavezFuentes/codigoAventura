@@ -135,7 +135,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 				</Form.Group>
 
 				<Form.Group controlId="inputPassword">
-					<Form.Label>Confirma tu contraseña.</Form.Label>
+					<Form.Label>Confirma tu contraseña</Form.Label>
 
 					<Form.Control required type="password" size='lg' value={password} name='password' onChange={this.handleChange} />
 

@@ -72,7 +72,7 @@ const SignUpPage = () => {
             <Paper elevation={10} className={classes.greeting}>
                      
                     <Typography variant='h3' className={classes.typoH3}> 
-                    !   Empieza tu aventura aquí!
+                    !Empieza tu aventura aquí!
                     </Typography>
 
                     <Typography variant='h5' className={classes.typoH5}>

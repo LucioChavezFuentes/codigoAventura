@@ -7,24 +7,17 @@ import RouterGroupAuthUser from './components/RouterGroupAuthUser/RouterGroupAut
 
 interface appProps  {
   vanish: string
-  
 } 
 
-
 const App: React.FC<appProps> = (props: appProps) => {  
-
-  
-  
-    return (
+    
+  return (
       <div className="App">
         
-          
             <AuthUserContext.Consumer>
              {authUser => authUser ? <RouterGroupAuthUser/> : <TransitionGroupNonAuthUser vanish={props.vanish} />}  
             </AuthUserContext.Consumer>
             
-          
-    
       </div>
     );
 }
