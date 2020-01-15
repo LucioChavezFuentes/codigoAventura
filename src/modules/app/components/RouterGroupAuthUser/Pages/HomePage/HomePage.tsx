@@ -128,7 +128,7 @@ const HomePage: React.FC<Props> = (props) => {
         if(userCode && props.authUser) {
           setCode(userCode.code);
         }
-        setCodeLoading(false); 
+        setCodeLoading(false);
 
       })
     }, []);  

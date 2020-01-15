@@ -55,7 +55,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 		const { validEmail, password, email } = this.state;
 		if (validEmail) {
 			this.setState({ validatedForm: true })
-			this.props.Firebase!.doSingInWithEmailAndPassword(email, password)
+			this.props.Firebase!.doSignInWithEmailAndPassword(email, password)
 
 				.then((authUser: any) => {
 					this.setState({ ...initialState });
@@ -135,7 +135,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 				</Form.Group>
 
 				<Form.Group controlId="inputPassword">
-					<Form.Label>Confirma tu contraseña</Form.Label>
+					<Form.Label>Contraseña</Form.Label>
 
 					<Form.Control required type="password" size='lg' value={password} name='password' onChange={this.handleChange} />
 

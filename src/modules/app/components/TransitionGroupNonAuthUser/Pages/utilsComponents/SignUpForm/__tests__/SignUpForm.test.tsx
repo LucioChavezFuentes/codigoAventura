@@ -1,5 +1,5 @@
 //Mocks Firebase Class
-jest.mock('../../../../../../../firebaseApp/firebaseClass'); 
+jest.mock('../../../../../../../firebaseApp/firebaseClass');
 
 import React from 'react';
 import SignUpForm from '../SignUpForm'
@@ -32,7 +32,7 @@ afterEach(cleanup);
 //const doCreateUserWithEmailAndPassword = jest.fn((email:string, password:string) => {auth: true}) 
 
 const tree = (
-    <FirebaseContext.Provider value={new firebase()}>    
+    <FirebaseContext.Provider value={new firebase()}>  
        <Router>
            <SignUpForm />
        </Router>
@@ -59,6 +59,5 @@ test('The FormLogin gives proper feedback', () => {
     //@ts-ignore
     expect(mockDoCreateUserWithEmailAndPassword.mock.calls.length).toBe(1);
 
-//TODO: Finish this test implementation for FormLogin
-})
+});
 

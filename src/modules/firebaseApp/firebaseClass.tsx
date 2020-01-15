@@ -21,7 +21,6 @@ class Firebase {
         app.initializeApp(firebaseConfig);
         this.auth = app.auth();
         this.db = app.database();
-        
     }
 
     //Authentication API
@@ -31,7 +30,7 @@ class Firebase {
     } 
     
     
-    doSingInWithEmailAndPassword = (email:string, password:string) => 
+    doSignInWithEmailAndPassword = (email:string, password:string) => 
       this.auth.signInWithEmailAndPassword(email, password); 
     
 

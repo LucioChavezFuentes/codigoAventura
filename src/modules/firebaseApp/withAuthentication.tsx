@@ -1,5 +1,5 @@
 import React from 'react';
-import authContext from './authContext';
+import AuthUserContext from './authUserContext';
 import {withFirebase} from './index';
 import Firebase from '../app/components/RouterGroupAuthUser/Pages/utils/firebaseApp';
 import {RouteComponentProps} from 'react-router-dom';
@@ -33,6 +33,8 @@ class withAuthenticationBase extends React.Component<Props > {
         })
     }
 
+    
+
     componentWillUnmount() { 
         this.listener();
     }
@@ -40,9 +42,9 @@ class withAuthenticationBase extends React.Component<Props > {
     render() {
 
         return(
-            <authContext.Provider value={this.state.authUser} >
+            <AuthUserContext.Provider value={this.state.authUser} >
                 <Component {...this.props}  vanish={this.state.vanish}  />
-            </authContext.Provider>
+            </AuthUserContext.Provider>
         )
     }
 }
