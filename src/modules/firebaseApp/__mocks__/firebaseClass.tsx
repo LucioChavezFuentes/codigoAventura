@@ -1,12 +1,16 @@
 
 export let mockUserObject: any = null;
 
+let listenerCallback : any = () => {};
+
 export let mockOnAuthStateChanged = jest.fn((callback) => {
-  callback(mockUserObject)
+  
+  listenerCallback = callback;
+  
   return () => {}
 });
 
-let excuteListener
+
 
 export const mockDoCreateUserWithEmailAndPassword = jest.fn(function(email:string, password:string) {
 
@@ -90,7 +94,7 @@ const mockFirebase = jest.fn().mockImplementation(() => {
             resolve()
           })
         }).then(function() {
-          executeListener(mockUserObject)
+          listenerCallback(mockUserObject)
         })
       }
       
@@ -124,7 +128,7 @@ const mockFirebase = jest.fn().mockImplementation(() => {
             resolve()
           })
         }).then(function() {
-          executeListener(mockUserObject)
+          listenerCallback(mockUserObject)
         })
       }
       
@@ -136,7 +140,7 @@ const mockFirebase = jest.fn().mockImplementation(() => {
 
     doSignOut : function(){
       //this.newMockUserObject = null
-      this.auth.listenerCallback(null)
+      listenerCallback(null)
     },
 
     user: mockCreateUserAtServer,
@@ -166,7 +170,7 @@ const mockFirebase = jest.fn().mockImplementation(() => {
 
       onAuthStateChanged: function(callback: any) {
         //@ts-ignore
-        this.listenerCallback = callback
+        listenerCallback = callback
         //callback(this.mockUserObject)
         return () => {
 
