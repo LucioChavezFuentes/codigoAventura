@@ -2,7 +2,7 @@
 jest.mock('../../../../../../../firebaseApp/firebaseClass');
 
 import React from 'react';
-import SignUpForm from '../SignUpForm'
+import SignInForm from '../SignInForm'
 import { cleanup, render, fireEvent } from '@testing-library/react';
 
 //React Router Dom
@@ -15,57 +15,58 @@ import * as mockFirebase from '../../../../../../../firebaseApp/__mocks__/fireba
 import {FirebaseContext} from '../../../../../../../firebaseApp';
 import * as Firebase from '../../../../../../../firebaseApp/firebaseClass'; 
 import firebase from '../../../../../../../firebaseApp/firebaseClass';
-const {mockDoCreateUserWithEmailAndPassword} = Firebase as typeof mockFirebase;
+//import Firebase, { AuthUserContext, FirebaseContext, withAuthentication}  from '../../../utils/firebaseApp';
+const {mockDoSignInWithEmailAndPassword} = Firebase as typeof mockFirebase;
 
 beforeEach(() => {
     //@ts-ignore
     firebase.mockClear();
-    mockDoCreateUserWithEmailAndPassword.mockClear();
+    mockDoSignInWithEmailAndPassword.mockClear();
 });
 
 afterEach(cleanup);  
 
+
+//const doCreateUserWithEmailAndPassword = jest.fn((email:string, password:string) => {auth: true}) 
+
 const tree = (
     <FirebaseContext.Provider value={new firebase()}>  
        <Router>
-           <SignUpForm />
+           <SignInForm />
        </Router>
     </FirebaseContext.Provider>
   )
 
-test("The SignUpForm triggers doCreateUserWithEmailAndPassword firebase's function with valid email and password match", () => {
+test("SignInForm triggers doSignInWithEmailAndPassword firebase's function with valid email and password match", () => {
     const {getByText, getByLabelText} = render(tree);
     
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
-    const confirmPassword = getByLabelText('Confirma tu contraseña');
     const submitButton = getByText('Submit');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo@kun.com'}});
     fireEvent.change(passwordInput, {target: {value: '123456'}});
-    fireEvent.change(confirmPassword, {target: {value: '123456'}}); 
     fireEvent.click(submitButton, leftClick);
- 
+    //expect(firebase).toHaveBeenCalledTimes(1); 
     expect(emailInput).toBeTruthy();
-    expect(mockDoCreateUserWithEmailAndPassword).toBeCalled();
+    //@ts-ignore
+    expect(mockDoSignInWithEmailAndPassword).toBeCalled();
+
 });
 
-test("The SignUpForm refuse to call doCreateUserWithEmailAndPassword firebase's function when user provides invalid email and password", () => {
+test("SignInForm refuse to call doSignInWithEmailAndPassword firebase's function when user provides invalid email", () => {
     const {getByText, getByLabelText} = render(tree);
     
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
-    const confirmPassword = getByLabelText('Confirma tu contraseña');
     const submitButton = getByText('Submit');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo'}});
     fireEvent.change(passwordInput, {target: {value: '123457'}});
-    fireEvent.change(confirmPassword, {target: {value: '123456'}}); 
     fireEvent.click(submitButton, leftClick);
-     
     expect(emailInput).toBeTruthy();
-    expect(mockDoCreateUserWithEmailAndPassword).not.toBeCalled();
+    
+    expect(mockDoSignInWithEmailAndPassword.mock.calls.length).toBe(0);
 });
-
