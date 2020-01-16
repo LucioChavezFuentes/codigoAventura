@@ -54,10 +54,10 @@ test('The FormLogin gives proper feedback', () => {
     fireEvent.change(passwordInput, {target: {value: '123456'}});
     fireEvent.change(confirmPassword, {target: {value: '123456'}}); 
     fireEvent.click(submitButton, leftClick);
-    expect(firebase).toHaveBeenCalledTimes(1); 
+    //expect(firebase).toHaveBeenCalledTimes(1); 
     expect(emailInput).toBeTruthy();
     //@ts-ignore
-    //expect(mockDoCreateUserWithEmailAndPassword.mock.calls.length).toBe(1);
+    expect(mockDoCreateUserWithEmailAndPassword).toBeCalled();
 
 });
 

@@ -7,20 +7,36 @@ export let mockOnAuthStateChanged = jest.fn((callback) => {
   
   listenerCallback = callback;
   
-  return () => {}
+  return () => {
+    mockUserObject = null
+  }
 });
 
 
 
 export const mockDoCreateUserWithEmailAndPassword = jest.fn(function(email:string, password:string) {
 
-  mockUserObject = {
-    auth: true,
-    uid: 'chiquillo',
-    email,
-    user: {
-      uid: 'chiquillo'
-    }}
+  if(!mockUserObject) {
+
+    mockUserObject = {
+      auth: true,
+      uid: 'chiquillo',
+      email,
+      user: {
+        uid: 'chiquillo'
+      }
+    }
+
+    mockDoCreateUserWithEmailAndPassword(email,password).then(function(){
+      return new Promise(function(resolve) {
+        resolve()
+      })
+    }).then(function() {
+      listenerCallback(mockUserObject)
+    })
+  }
+  
+  //this.newMockUserObject = mockUserObject
 
   return new Promise((resolve, reject) => resolve(mockUserObject))
 
@@ -70,25 +86,19 @@ const mockFirebase = jest.fn().mockImplementation(() => {
 
   return {
     //TODO: Wrap mockDoCreateUserWithEmailAndPassword in a jest.fn()
-    doCreateUserWithEmailAndPassword: function(email:string, password:string) {
+    doCreateUserWithEmailAndPassword: mockDoCreateUserWithEmailAndPassword /*function(email:string, password:string) {
 
-      const executeListener = this.auth.listenerCallback     
-      
-      mockUserObject = {
-        auth: true,
-        uid: 'chiquillo',
-        email,
-        user: {
-          uid: 'chiquillo'
-        }}
+      if(!mockUserObject) {
 
-      //executeListener(mockUserObject)
-      
-      /*setTimeout(() => {
-        executeListener(mockUserObject)
-      }, 50);*/
-      if(!this.auth.mockUserObject) {
-        this.auth.newMockUserObject = mockUserObject
+        mockUserObject = {
+          auth: true,
+          uid: 'chiquillo',
+          email,
+          user: {
+            uid: 'chiquillo'
+          }
+        }
+
         this.doCreateUserWithEmailAndPassword(email,password).then(function(){
           return new Promise(function(resolve) {
             resolve()
@@ -102,7 +112,7 @@ const mockFirebase = jest.fn().mockImplementation(() => {
     
       return new Promise((resolve, reject) => resolve(mockUserObject))
 
-    },
+    }*/,
 
     doSignInWithEmailAndPassword:  function(email:string, password:string) {
 
@@ -168,14 +178,14 @@ const mockFirebase = jest.fn().mockImplementation(() => {
         return this._mockUserObject 
       },
 
-      onAuthStateChanged: function(callback: any) {
+      onAuthStateChanged: mockOnAuthStateChanged, /*function(callback: any) {
         //@ts-ignore
         listenerCallback = callback
         //callback(this.mockUserObject)
         return () => {
-
+          mockUserObject = null
         }
-      },
+      },*/
     },
   };
 });
