@@ -20,7 +20,7 @@ import * as  firebase from '../../firebaseApp/firebaseClass';
 import Firebase from '../../firebaseApp/firebaseClass';
 
 //import Firebase, { AuthUserContext, FirebaseContext, withAuthentication}  from '../../../utils/firebaseApp';
-const {mockDoCreateUserWithEmailAndPassword, mockOnAuthStateChanged, mockCreateUserAtServer} = firebase as typeof mockFirebase;
+const {mockDoCreateUserWithEmailAndPassword, mockOnAuthStateChanged } = firebase as typeof mockFirebase;
 
 beforeEach(() => {
   //@ts-ignore

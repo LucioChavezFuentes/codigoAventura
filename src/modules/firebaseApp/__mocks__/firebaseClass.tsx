@@ -3,8 +3,8 @@ export let mockUserObject: any = null;
 
 let listenerCallback : any = () => {};
 
-export let mockOnAuthStateChanged = jest.fn((callback) => {
-  
+export let mockOnAuthStateChanged = jest.fn((callback: any) => {
+  callback(mockUserObject)
   listenerCallback = callback;
   
   return () => {
@@ -72,7 +72,7 @@ export const mockDoSignOut = jest.fn(function(){
   return () => {}
 })*/
 
-export const mockCreateUserAtServer = jest.fn((id:string) => {
+export const mockUserDatabaseRef= jest.fn((id:string) => {
   return {
     set: (email: {email: string}) => {
     },
@@ -85,38 +85,45 @@ export const mockCreateUserAtServer = jest.fn((id:string) => {
       }
 
       callback(snapshot)
-    }
+    },
+
+    update: () => {}
+    
   }
 });
 
-const mockFirebase = jest.fn().mockImplementation(() => {
+//This an example of mocking a ES6 Class.
+//The mockImplementation's arguments are used for the mocking class' constructor's arguments.
+const mockFirebase = jest.fn().mockImplementation((mockUser) => {
+  //This space, before return, is for class' constructor mock implementation.
+  mockUserObject = mockUser
 
-  return {
-    
-    doCreateUserWithEmailAndPassword: mockDoCreateUserWithEmailAndPassword ,
-
-    doSignInWithEmailAndPassword: mockDoSignInWithEmailAndPassword,
-
-    doSignOut : function(){
-      listenerCallback(null)
-    },
-
-    user: mockCreateUserAtServer,
-
-    auth: {
-      _mockUserObject: null,
-
-      set newMockUserObject(mockUserObject : any) {
-        this._mockUserObject = mockUserObject
+    return {
+      
+      doCreateUserWithEmailAndPassword: mockDoCreateUserWithEmailAndPassword ,
+  
+      doSignInWithEmailAndPassword: mockDoSignInWithEmailAndPassword,
+  
+      doSignOut : function(){
+        listenerCallback(null)
       },
-
-      get mockUserObject() {
-        return this._mockUserObject 
+  
+      user: mockUserDatabaseRef,
+  
+      auth: {
+        _mockUserObject: null,
+  
+        set newMockUserObject(mockUserObject : any) {
+          this._mockUserObject = mockUserObject
+        },
+  
+        get mockUserObject() {
+          return this._mockUserObject 
+        },
+  
+        onAuthStateChanged: mockOnAuthStateChanged, 
       },
-
-      onAuthStateChanged: mockOnAuthStateChanged, 
-    },
-  };
-});
+    };
+  });
 
 export default mockFirebase; 
