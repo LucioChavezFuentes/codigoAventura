@@ -19,6 +19,10 @@ createStyles({
     greetings: {
         padding: '2rem',
 
+        [theme.breakpoints.down('sm')]: { 
+            padding: '1rem',
+        },
+
         '& .greetingsContainer': {
             padding: '2rem',
         },
@@ -27,23 +31,45 @@ createStyles({
             margin: '2rem 0',
 
             [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.2rem',
+            },
+
+            [theme.breakpoints.up('sm')]: { 
                 fontSize: '1.9rem',
-              }
+            }
         },
 
         '& .greeting-2': {
             margin: '1rem 0',
 
             [theme.breakpoints.down('xs')]: { 
+                fontSize: '1rem',
+              },
+            [theme.breakpoints.up('sm')]: { 
                 fontSize: '1.2rem',
-              }
+              },
+        },
+
+        '& .greeting-25': {
+            margin: '1rem 0',
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1rem',
+              },
+            [theme.breakpoints.up('sm')]: { 
+                fontSize: '1.2rem',
+              },
         },
 
         '& .greeting-3': {
             margin: '1rem 0',
 
             [theme.breakpoints.down('xs')]: { 
-                fontSize: '1.2rem',
+                fontSize: '1rem',
+              },
+
+              [theme.breakpoints.up('sm')]: { 
+                fontSize: '1.3rem',
               }
         },
 
@@ -99,14 +125,18 @@ const LandingPage = () => {
  
             <div className='landing-content'>
 
-                <Paper >
+                <Paper elevation={10} >
                     <CardContent className={classes.greetings}>
                         <Typography variant='h3' className='greeting-1'>
                             !Cualquiera puede programar!                      
                         </Typography>
 
                         <Typography variant='h5' className='greeting-2'>
-                            Es más que una carrera... Es una aventura.                      
+                            Es más que una carrera...                      
+                        </Typography>
+
+                        <Typography variant='h5' className='greeting-25'>
+                            !Es una aventura¡                      
                         </Typography>
 
                         <Typography variant='h5' className='greeting-3'>

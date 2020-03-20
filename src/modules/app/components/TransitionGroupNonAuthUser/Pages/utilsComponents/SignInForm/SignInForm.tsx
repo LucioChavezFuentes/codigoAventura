@@ -141,13 +141,13 @@ class SignInFormBase extends React.Component<Props, State>  {
 
 				</Form.Group>
 
-				{authError || passwordError ? 
-					<p style={{color: 'red'}}>El correo electrónio o la cantreseña no coinciden con nuestros registros, por favor revisa e inténtalo de nuevo.</p> :
-						''} 
-
 				<Button className='submit-btn' variant="primary" type='submit' block disabled={loading} >
-					Submit
+					¡A Programar!
 				</Button>
+
+				{authError || passwordError ? 
+					<p style={{color: 'red', marginTop: '10px'}}>El correo electrónio o la cantreseña no coinciden con nuestros registros, por favor revisa e inténtalo de nuevo.</p> :
+						''} 
 
 			</Form>
 		)

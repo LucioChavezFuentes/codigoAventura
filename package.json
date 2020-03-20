@@ -37,7 +37,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
-    "test:coverage": "set CI=true && react-scripts test --coverage"
+    "test:coverage": "set CI=true && react-scripts test --coverage",
+    "clean": "rm -rf node_modules",
+    "deploy": "yarn run build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "react-app"

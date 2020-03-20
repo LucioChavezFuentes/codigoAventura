@@ -29,7 +29,11 @@ const useStyles = makeStyles((theme:Theme) =>
             marginBottom: '1rem',
 
             [theme.breakpoints.down('xs')]: { 
-                fontSize: '1.5rem',
+                fontSize: '1.3rem',
+              },
+
+            [theme.breakpoints.up('sm')]: { 
+                fontSize: '1.7rem',
               } 
         },
 
@@ -38,6 +42,9 @@ const useStyles = makeStyles((theme:Theme) =>
             marginBottom: '1.5rem',
 
             [theme.breakpoints.down('xs')]: { 
+                fontSize: '0.7rem',
+              },
+            [theme.breakpoints.up('sm')]: { 
                 fontSize: '1rem',
               } 
         },

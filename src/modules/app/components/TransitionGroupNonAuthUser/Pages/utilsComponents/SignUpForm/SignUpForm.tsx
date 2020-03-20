@@ -126,7 +126,7 @@ class SignUpFormBase extends React.Component<Props, State>  {
     //but the <Form.Control> will be displayed in greeen. 
 
     return (
-        <div>
+        <div className='formContainer'>
             
     <Form onSubmit={this.handleSubmit} noValidate  validated={validatedForm} className='formComponent'>
         
@@ -165,8 +165,8 @@ class SignUpFormBase extends React.Component<Props, State>  {
 
 
 
-        <Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank} >
-                Submit
+        <Button className='submit-btn' variant="primary" type='submit' block disabled={isBlank} style={isBlank ? {color: 'rgb(217, 217, 217, 0.4)'} : undefined} >
+                ¡A Programar!
         </Button>
 
         {error && <p className="errorFirebase">{error.message}</p>}
