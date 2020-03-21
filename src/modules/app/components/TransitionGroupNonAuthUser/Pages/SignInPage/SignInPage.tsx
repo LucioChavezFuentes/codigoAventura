@@ -15,7 +15,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme:Theme) => 
     createStyles({
         welcomeBack: {
-            width: '50%',
+            width: '70%',
             margin: '0 auto',
 
             [theme.breakpoints.down('xs')]: { 

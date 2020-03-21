@@ -118,6 +118,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 		let emailBlank = email === '';
 
 		return (
+			<div className='signInFormContainer'>
 
 			<Form onSubmit={this.handleSubmit} noValidate validated={validForm} className='formComponent'>
 
@@ -150,6 +151,7 @@ class SignInFormBase extends React.Component<Props, State>  {
 						''} 
 
 			</Form>
+			</div>
 		)
 	}
 }

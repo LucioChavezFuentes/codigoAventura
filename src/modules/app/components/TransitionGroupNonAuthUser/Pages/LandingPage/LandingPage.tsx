@@ -16,6 +16,19 @@ const useStyles = makeStyles((theme :Theme) =>
 
 createStyles({
 
+    landingContent: {
+
+        position: 'relative',
+        top: '5rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        //margin: '0 10rem',
+        padding: '0 2rem',
+        alignItems: 'flex-start',
+
+    },
+
     greetings: {
         padding: '2rem',
 
@@ -23,8 +36,8 @@ createStyles({
             padding: '1rem',
         },
 
-        '& .greetingsContainer': {
-            padding: '2rem',
+        [theme.breakpoints.down(330)]: { 
+            padding: '0.7rem',
         },
 
         '& .greeting-1': {
@@ -34,20 +47,30 @@ createStyles({
                 fontSize: '1.2rem',
             },
 
-            [theme.breakpoints.up('sm')]: { 
+            [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.9rem',
-            }
+            },
+
+            [theme.breakpoints.down(330)]: { 
+                fontSize: '1rem',
+            },
+
         },
 
         '& .greeting-2': {
             margin: '1rem 0',
 
+            [theme.breakpoints.only('sm')]: { 
+                fontSize: '1.2rem',
+              },
+            
             [theme.breakpoints.down('xs')]: { 
                 fontSize: '1rem',
               },
-            [theme.breakpoints.up('sm')]: { 
-                fontSize: '1.2rem',
-              },
+            
+            [theme.breakpoints.down(330)]: { 
+                fontSize: '0.9rem',
+            },
         },
 
         '& .greeting-25': {
@@ -56,7 +79,7 @@ createStyles({
             [theme.breakpoints.down('xs')]: { 
                 fontSize: '1rem',
               },
-            [theme.breakpoints.up('sm')]: { 
+            [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.2rem',
               },
         },
@@ -68,9 +91,13 @@ createStyles({
                 fontSize: '1rem',
               },
 
-              [theme.breakpoints.up('sm')]: { 
+            [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.3rem',
-              }
+              },
+            
+            [theme.breakpoints.down(330)]: { 
+                fontSize: '0.9rem',
+            },
         },
 
         '& .greeting-4': {
@@ -79,12 +106,16 @@ createStyles({
             [theme.breakpoints.down('xs')]: { 
                 position: 'relative',
                 bottom: '1rem',
+                
               }  
         } 
     },
 
     greetingFour : { 
         margin: '1rem 0',
+        [theme.breakpoints.down('xs')]: { 
+            fontSize: '0.7rem'
+          } 
     },
 
     cardLink: {
@@ -123,9 +154,9 @@ const LandingPage = () => {
         <div className='landing-page'> 
             <Header  />
  
-            <div className='landing-content'>
+            <div className={classes.landingContent}>
 
-                <Paper elevation={10} >
+                <Paper elevation={10}>
                     <CardContent className={classes.greetings}>
                         <Typography variant='h3' className='greeting-1'>
                             !Cualquiera puede programar!                      
@@ -157,7 +188,6 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
-        
     )
 }
 

@@ -15,7 +15,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme:Theme) => 
     createStyles({
         greeting: {
-            width: '50%',
+            width: '70%',
             margin: '0 auto',
 
             [theme.breakpoints.down('xs')]: { 
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme:Theme) =>
                 fontSize: '1.3rem',
               },
 
-            [theme.breakpoints.up('sm')]: { 
+            [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.7rem',
               } 
         },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme:Theme) =>
             [theme.breakpoints.down('xs')]: { 
                 fontSize: '0.7rem',
               },
-            [theme.breakpoints.up('sm')]: { 
+            [theme.breakpoints.only('sm')]: { 
                 fontSize: '1rem',
               } 
         },

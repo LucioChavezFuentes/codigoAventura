@@ -32,32 +32,44 @@ const useStyles = makeStyles((theme: Theme) =>
 
     titleContainer: { 
       flexGrow: 1,
-      textAlign: 'start'
+      textAlign: 'start',
+
     },
 
-    title: {
+    titleLandingPage: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.down('xs')]: { 
         fontSize: '0.6rem',
-      } 
+      },
+
+      [theme.breakpoints.down(330)]: { 
+        fontSize: '0.4rem',
+      },
     },
  
-    logoutButton: {
+    signUpButtonLandingPage: {
       textAlign: 'end',
       textDecoration: 'none',
       [theme.breakpoints.down('xs')]: { 
         fontSize: '0.5rem',
+      },
+
+      [theme.breakpoints.down(330)]: { 
+        fontSize: '0.4rem',
       } 
       
     },
-    
-    loginButton: {
-      '&:hover': {
-        color: 'black' 
-      }
-    },
 
-    loginButtonSignUpPage: {
+    signUpButton: {
+      textAlign: 'end',
+      textDecoration: 'none',
+      [theme.breakpoints.down('xs')]: { 
+        fontSize: '0.6rem',
+      },
+    },
+    
+
+    loginButton: {
       [theme.breakpoints.down('xs')]: { 
         fontSize: '0.6rem',
       },
@@ -67,10 +79,11 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
 
-    titleSignUpPage: {
+    title: {
       [theme.breakpoints.down('xs')]: { 
         fontSize: '0.7rem',
-      }
+      },
+
     },
 
     loginButtonLandingPage: {
@@ -80,6 +93,10 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.down('xs')]: { 
         fontSize: '0.5rem',
+      },
+
+      [theme.breakpoints.down(330)]: { 
+        fontSize: '0.4rem',
       } 
     }
   })
@@ -104,7 +121,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
               </Button>
             </div>
       
-            <Button className={classes.logoutButton} component={Link} to={ROUTES.SIGN_UP} color='secondary' variant='contained'>
+            <Button className={classes.signUpButton} component={Link} to={ROUTES.SIGN_UP} color='secondary' variant='contained'>
               Regístrate  
             </Button>
           
@@ -125,12 +142,12 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         <Toolbar>
       
           <div className={classes.titleContainer}>
-              <Button className={classes.titleSignUpPage} component={Link} to={ROUTES.LANDING} color='inherit'>
+              <Button className={classes.title} component={Link} to={ROUTES.LANDING} color='inherit'>
                 Código Aventura  
               </Button>
             </div>
             
-            <Button className={classes.loginButtonSignUpPage} component={Link} to={ROUTES.SIGN_IN} color='default' variant='contained'>   
+            <Button className={classes.loginButton} component={Link} to={ROUTES.SIGN_IN} color='default' variant='contained'>   
               Iniciar Sesión
             </Button> 
               
@@ -149,7 +166,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
         <Toolbar>
       
           <div className={classes.titleContainer}>
-              <Button className={classes.title} component={Link} to={ROUTES.LANDING} color='inherit'>
+              <Button className={classes.titleLandingPage} component={Link} to={ROUTES.LANDING} color='inherit'>
                 Código Aventura  
               </Button>
             </div>
@@ -158,7 +175,7 @@ const HeaderBase: React.FC<Props> = ({ location }) => {
               Iniciar Sesión
             </Button> 
 
-            <Button className={classes.logoutButton} component={Link} to={ROUTES.SIGN_UP} color='secondary' variant='contained'>   
+            <Button className={classes.signUpButtonLandingPage} component={Link} to={ROUTES.SIGN_UP} color='secondary' variant='contained'>   
               Regístrate 
             </Button> 
               
