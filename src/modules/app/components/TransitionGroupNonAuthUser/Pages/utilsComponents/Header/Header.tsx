@@ -39,22 +39,38 @@ const useStyles = makeStyles((theme: Theme) =>
     titleLandingPage: {
       marginRight: theme.spacing(2),
       [theme.breakpoints.down('xs')]: { 
-        fontSize: '0.6rem',
+        fontSize: '0.51rem',
+        marginRight: theme.spacing(0)
       },
 
-      [theme.breakpoints.down(330)]: { 
+      [theme.breakpoints.down(320)]: { 
         fontSize: '0.4rem',
       },
     },
- 
+
+    loginButtonLandingPage: {
+      marginRight: theme.spacing(2),
+      '&:hover': {
+        color: 'black' 
+      },
+      [theme.breakpoints.down('xs')]: { 
+        fontSize: '0.47rem',
+        marginRight: theme.spacing(1),
+      },
+
+      [theme.breakpoints.down(320)]: { 
+        fontSize: '0.4rem',
+      } 
+    },
+
     signUpButtonLandingPage: {
       textAlign: 'end',
       textDecoration: 'none',
       [theme.breakpoints.down('xs')]: { 
-        fontSize: '0.5rem',
+        fontSize: '0.47rem',
       },
 
-      [theme.breakpoints.down(330)]: { 
+      [theme.breakpoints.down(320)]: { 
         fontSize: '0.4rem',
       } 
       
@@ -86,19 +102,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
     },
 
-    loginButtonLandingPage: {
-      marginRight: theme.spacing(2),
-      '&:hover': {
-        color: 'black' 
-      },
-      [theme.breakpoints.down('xs')]: { 
-        fontSize: '0.5rem',
-      },
-
-      [theme.breakpoints.down(330)]: { 
-        fontSize: '0.4rem',
-      } 
-    }
   })
 )
 
