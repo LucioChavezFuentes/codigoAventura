@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 
+const microMobile = 318;
+
 const useStyles = makeStyles((theme :Theme) => 
 
 createStyles({
@@ -52,6 +54,10 @@ createStyles({
             },
 
             [theme.breakpoints.down(330)]: { 
+                fontSize: '0.9rem',
+            },
+
+            [theme.breakpoints.down(microMobile)]: { 
                 fontSize: '0.7rem',
             },
 
@@ -70,6 +76,10 @@ createStyles({
             
             [theme.breakpoints.down(330)]: { 
                 fontSize: '0.9rem',
+            },
+
+            [theme.breakpoints.down(microMobile)]: { 
+                fontSize: '0.7rem',
             },
         },
 
@@ -97,6 +107,10 @@ createStyles({
             
             [theme.breakpoints.down(330)]: { 
                 fontSize: '0.9rem',
+            },
+
+            [theme.breakpoints.down(microMobile)]: { 
+                fontSize: '0.7rem',
             },
         },
 

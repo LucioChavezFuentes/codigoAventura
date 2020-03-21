@@ -22,6 +22,8 @@ interface Props extends RouteComponentProps  {
   //TODO: Investigate the withRouter Props Types.
 }
 
+const microMobile = 318;
+
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
     header: {
@@ -43,8 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: theme.spacing(0)
       },
 
-      [theme.breakpoints.down(320)]: { 
-        fontSize: '5px',
+      [theme.breakpoints.down(microMobile)]: { 
+        fontSize: '7px',
         
       },
     },
@@ -59,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: theme.spacing(1),
       },
 
-      [theme.breakpoints.down(320)]: { 
+      [theme.breakpoints.down(microMobile)]: { 
         fontSize: '5px',
        
       } 
@@ -72,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: '0.47rem',
       },
 
-      [theme.breakpoints.down(320)]: { 
+      [theme.breakpoints.down(microMobile)]: { 
         fontSize: '5px',
       } 
       
