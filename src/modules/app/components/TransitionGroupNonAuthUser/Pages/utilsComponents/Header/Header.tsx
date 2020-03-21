@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       [theme.breakpoints.down(320)]: { 
-        fontSize: '0.4rem',
+        fontSize: '5px',
+        
       },
     },
 
@@ -59,7 +60,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       [theme.breakpoints.down(320)]: { 
-        fontSize: '0.4rem',
+        fontSize: '5px',
+       
       } 
     },
 
@@ -71,7 +73,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       [theme.breakpoints.down(320)]: { 
-        fontSize: '0.4rem',
+        fontSize: '5px',
       } 
       
     },

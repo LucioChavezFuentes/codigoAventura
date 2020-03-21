@@ -52,7 +52,7 @@ createStyles({
             },
 
             [theme.breakpoints.down(330)]: { 
-                fontSize: '0.9rem',
+                fontSize: '0.7rem',
             },
 
         },
