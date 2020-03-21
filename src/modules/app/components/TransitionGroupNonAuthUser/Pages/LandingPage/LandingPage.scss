@@ -4,17 +4,6 @@
     top: 0;
 }
 
-.landing-content {
-    position: relative;
-    top: 5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 10rem;
-    padding: 0 2rem;
-    align-items: flex-start;
-}
-
 .paperLandingPage {
     width: 90%;
 }
@@ -25,11 +14,4 @@
 
 .registration {
     font-size: 1.1rem;
-}
-
-@media screen and (max-width: 600px) {
-
-    .landing-content {
-        margin: 0 auto;
-    }
 }
