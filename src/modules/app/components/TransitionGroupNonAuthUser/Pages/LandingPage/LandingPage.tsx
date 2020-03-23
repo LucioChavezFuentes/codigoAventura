@@ -29,6 +29,18 @@ createStyles({
         padding: '0 2rem',
         alignItems: 'flex-start',
 
+        [theme.breakpoints.down('sm')]: { 
+            padding: '0 1rem'
+        },
+
+    },
+
+    landingPaper: {
+
+        [theme.breakpoints.down('xs')]: { 
+            width: '100%',
+        },
+
     },
 
     greetings: {
@@ -39,27 +51,25 @@ createStyles({
         },
 
         [theme.breakpoints.down(330)]: { 
-            padding: '0.7rem',
+            padding: '0.5rem',
         },
 
         '& .greeting-1': {
             margin: '2rem 0',
 
             [theme.breakpoints.down('xs')]: { 
-                fontSize: '1.2rem',
+                fontSize: '1.27rem',
             },
 
             [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.9rem',
             },
 
-            [theme.breakpoints.down(330)]: { 
-                fontSize: '0.9rem',
+            [theme.breakpoints.down(microMobile)]: { 
+                fontSize: '1.06rem',
             },
 
-            [theme.breakpoints.down(microMobile)]: { 
-                fontSize: '0.7rem',
-            },
+            
 
         },
 
@@ -78,9 +88,6 @@ createStyles({
                 fontSize: '0.9rem',
             },
 
-            [theme.breakpoints.down(microMobile)]: { 
-                fontSize: '0.7rem',
-            },
         },
 
         '& .greeting-25': {
@@ -92,6 +99,9 @@ createStyles({
             [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.2rem',
               },
+            [theme.breakpoints.down(330)]: { 
+                fontSize: '0.9rem',
+            },
         },
 
         '& .greeting-3': {
@@ -170,7 +180,7 @@ const LandingPage = () => {
  
             <div className={classes.landingContent}>
 
-                <Paper elevation={10}>
+                <Paper elevation={10} className={classes.landingPaper}>
                     <CardContent className={classes.greetings}>
                         <Typography variant='h3' className='greeting-1'>
                             !Cualquiera puede programar!                      
