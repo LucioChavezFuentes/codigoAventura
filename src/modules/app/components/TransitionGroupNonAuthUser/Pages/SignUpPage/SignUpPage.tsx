@@ -12,6 +12,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
+const microMobile = 318;
+
 const useStyles = makeStyles((theme:Theme) => 
     createStyles({
         greeting: {
@@ -19,7 +21,7 @@ const useStyles = makeStyles((theme:Theme) =>
             margin: '0 auto',
 
             [theme.breakpoints.down('xs')]: { 
-                width: '80%',
+                width: '90%',
               }
           
         },
@@ -34,6 +36,10 @@ const useStyles = makeStyles((theme:Theme) =>
 
             [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.7rem',
+              },
+            
+            [theme.breakpoints.down(microMobile)]: { 
+                fontSize: '1.23rem',
               } 
         },
 
@@ -55,6 +61,7 @@ const useStyles = makeStyles((theme:Theme) =>
 
             [theme.breakpoints.down('xs')]: { 
                 fontSize: '0.7rem',
+                marginBottom: '10px',
               }  
         },
 
