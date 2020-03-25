@@ -66,7 +66,7 @@ createStyles({
             },
 
             [theme.breakpoints.down(microMobile)]: { 
-                fontSize: '1.01rem',
+                fontSize: '1rem',
             },
 
             
