@@ -60,7 +60,7 @@ createStyles({
             [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.9rem',
             },
-            
+
             [theme.breakpoints.down('xs')]: { 
                 fontSize: '1.27rem',
             },
@@ -93,26 +93,29 @@ createStyles({
         '& .greeting-25': {
             margin: '1rem 0',
 
-            [theme.breakpoints.down('xs')]: { 
-                fontSize: '1rem',
-              },
+            
             [theme.breakpoints.only('sm')]: { 
+                fontSize: '1.4rem',
+              },
+
+            [theme.breakpoints.down('xs')]: { 
                 fontSize: '1.2rem',
               },
+
             [theme.breakpoints.down(microMobile)]: { 
-                fontSize: '0.9rem',
+                fontSize: '1rem',
             },
         },
 
         '& .greeting-3': {
             margin: '1rem 0',
 
-            [theme.breakpoints.down('xs')]: { 
-                fontSize: '1rem',
-              },
-
             [theme.breakpoints.only('sm')]: { 
                 fontSize: '1.3rem',
+              },
+            
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.1rem',
               },
 
             [theme.breakpoints.down(microMobile)]: { 
