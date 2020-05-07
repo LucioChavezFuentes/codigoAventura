@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '30%',
       borderRadius: '20px',
       backgroundColor: 'white',
+      [theme.breakpoints.down('xs')]: { 
+        width: '90%'
+      },
 
       '& p': {
         margin: 'auto'
@@ -194,7 +197,7 @@ const HomePage: React.FC<Props> = (props) => {
                 //WARNING: Console Error: Refused to execute script from 'http://localhost:3000/worker-javascript.js' because its MIME type ('text/html') is not executable.
                 //TODO: Find a solution to this warning.
                   width={width < 600 ? '300px' : '500px'}
-                  height={height < 900 ? '300px' : '500px'}
+                  height={height < 800 ? '300px' : '500px'}
                   mode="javascript"
                   theme="terminal"
                   value={code}
