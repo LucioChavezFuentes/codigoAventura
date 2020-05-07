@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
     homePage: {
       marginTop: theme.spacing(12),
+      paddingTop: '0.1px',
       [theme.breakpoints.down('xs')]: { 
         marginTop: theme.spacing(9)
       } 
@@ -32,6 +33,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
     titleClass: {
       marginBottom: theme.spacing(3),
+      padding: `10px 0`,
+      margin: '24px auto',
+      width: '30%',
+      borderRadius: '20px',
+      backgroundColor: 'white',
+
+      '& p': {
+        margin: 'auto'
+      },
+
+      '& span': {
+        fontWeight: 'bold',
+      }
     },
 
     editorContainer: {
@@ -54,6 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderStyle:  'solid',
       borderWidth: '1rem',
       borderColor: '#d9d9d9',
+      borderRadius: '20px',
 
       [theme.breakpoints.down('xs')]: { 
         position: 'relative',
@@ -100,6 +115,7 @@ const useStyles = makeStyles((theme: Theme) =>
     buttonContainer: {
       position: 'relative',
       top: '5rem',
+      margin: '20px 0',
       [theme.breakpoints.down('xs')]: {
         top: '50px',
       }
@@ -109,6 +125,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderStyle:  'solid',
       borderWidth: '1rem',
       borderColor: '#d9d9d9',
+      borderRadius: '20px'
     }
   })
 )
@@ -167,7 +184,7 @@ const HomePage: React.FC<Props> = (props) => {
 
           <div className={classes.homePage}>
             <div className={classes.titleClass}>
-              <p>Prográmale aquí chavo con email {props.authUser.email} </p>
+              <p>Tu email: <span>{props.authUser.email}</span> </p>
             </div>
 
             <div className={classes.editorContainer}>
