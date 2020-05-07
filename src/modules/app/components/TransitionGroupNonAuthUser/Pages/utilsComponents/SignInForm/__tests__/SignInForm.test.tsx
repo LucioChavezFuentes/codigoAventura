@@ -42,7 +42,7 @@ test("SignInForm triggers doSignInWithEmailAndPassword firebase's function with 
     
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
-    const submitButton = getByText('Submit');
+    const submitButton = getByText('¡A Programar!');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo@kun.com'}});
@@ -60,7 +60,7 @@ test("SignInForm refuse to call doSignInWithEmailAndPassword firebase's function
     
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
-    const submitButton = getByText('Submit');
+    const submitButton = getByText('¡A Programar!');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo'}});

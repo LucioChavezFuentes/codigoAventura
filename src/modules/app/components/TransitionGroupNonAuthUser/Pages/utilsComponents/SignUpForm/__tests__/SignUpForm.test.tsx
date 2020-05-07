@@ -39,7 +39,7 @@ test("The SignUpForm triggers doCreateUserWithEmailAndPassword firebase's functi
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
     const confirmPassword = getByLabelText('Confirma tu contraseña');
-    const submitButton = getByText('Submit');
+    const submitButton = getByText('¡A Programar!');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo@kun.com'}});
@@ -57,7 +57,7 @@ test("The SignUpForm refuse to call doCreateUserWithEmailAndPassword firebase's 
     const emailInput = getByLabelText('Email o Correo Electrónico');
     const passwordInput = getByLabelText('Contraseña');
     const confirmPassword = getByLabelText('Confirma tu contraseña');
-    const submitButton = getByText('Submit');
+    const submitButton = getByText('¡A Programar!');
     const leftClick = {button: 0};
     
     fireEvent.change(emailInput, {target: {value: 'chiquillo'}});

@@ -59,7 +59,7 @@ test('Redirect to /home when a user is authenticated from Login Page', async () 
   expect(getByText('!Continua tu aventura!')).toBeTruthy()
 
   const leftClick= {button: 0}
-  const submitButton = getByText('Submit');
+  const submitButton = getByText('¡A Programar!');
   const usernameInput =  getByLabelText('Email o Correo Electrónico');
   const passwordInput = getByLabelText('Contraseña');
 
@@ -112,7 +112,7 @@ test('Redirect to /home when a user is authenticated from SignUp Page', async ()
   expect(getByText('!Empieza tu aventura aquí!')).toBeTruthy()
 
   const leftClick= {button: 0}
-  const submitButton = getByText('Submit');
+  const submitButton = getByText('¡A Programar!');
   const usernameInput =  getByLabelText('Email o Correo Electrónico');
   const passwordInput = getByLabelText('Contraseña');
   const confirmPasswordInput = getByLabelText('Confirma tu contraseña');

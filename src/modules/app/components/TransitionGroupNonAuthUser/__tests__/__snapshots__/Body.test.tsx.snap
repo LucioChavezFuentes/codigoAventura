@@ -10,7 +10,7 @@ exports[`renders the landing page without crashing 1`] = `
         className="landing-page"
       >
         <div
-          className="makeStyles-header-5"
+          className="makeStyles-header-7"
         >
           <header
             className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
@@ -19,11 +19,11 @@ exports[`renders the landing page without crashing 1`] = `
               className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
             >
               <div
-                className="makeStyles-titleContainer-6"
+                className="makeStyles-titleContainer-8"
               >
                 <a
                   aria-disabled={false}
-                  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-title-7 MuiButton-colorInherit"
+                  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-titleLandingPage-9 MuiButton-colorInherit"
                   href="/"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -52,7 +52,7 @@ exports[`renders the landing page without crashing 1`] = `
               </div>
               <a
                 aria-disabled={false}
-                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-loginButtonLandingPage-12"
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-loginButtonLandingPage-10"
                 href="/signin"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -80,7 +80,7 @@ exports[`renders the landing page without crashing 1`] = `
               </a>
               <a
                 aria-disabled={false}
-                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-logoutButton-8 MuiButton-containedSecondary"
+                className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-signUpButtonLandingPage-11 MuiButton-containedSecondary"
                 href="/signup"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -110,13 +110,13 @@ exports[`renders the landing page without crashing 1`] = `
           </header>
         </div>
         <div
-          className="landing-content"
+          className="makeStyles-landingContent-1"
         >
           <div
-            className="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+            className="MuiPaper-root MuiPaper-elevation10 makeStyles-landingPaper-2 MuiPaper-rounded"
           >
             <div
-              className="MuiCardContent-root makeStyles-greetings-1"
+              className="MuiCardContent-root makeStyles-greetings-3"
             >
               <h3
                 className="MuiTypography-root greeting-1 MuiTypography-h3"
@@ -126,7 +126,12 @@ exports[`renders the landing page without crashing 1`] = `
               <h5
                 className="MuiTypography-root greeting-2 MuiTypography-h5"
               >
-                Es más que una carrera... Es una aventura.
+                Es más que una carrera...
+              </h5>
+              <h5
+                className="MuiTypography-root greeting-25 MuiTypography-h5"
+              >
+                !Es una aventura¡
               </h5>
               <h5
                 className="MuiTypography-root greeting-3 MuiTypography-h5"
@@ -135,11 +140,11 @@ exports[`renders the landing page without crashing 1`] = `
               </h5>
             </div>
             <h6
-              className="MuiTypography-root makeStyles-greetingFour-2 MuiTypography-subtitle2"
+              className="MuiTypography-root makeStyles-greetingFour-4 MuiTypography-subtitle2"
             >
               ¿Ya tienes cuenta? Entra 
               <a
-                className="makeStyles-cardLink-3"
+                className="makeStyles-cardLink-5"
                 href="/signin"
                 onClick={[Function]}
               >
@@ -148,9 +153,11 @@ exports[`renders the landing page without crashing 1`] = `
             </h6>
           </div>
           <div
-            className="makeStyles-registration-4"
+            className="makeStyles-registration-6"
           >
-            <div>
+            <div
+              className="formContainer"
+            >
               <form
                 className="formComponent"
                 noValidate={true}
@@ -226,9 +233,14 @@ exports[`renders the landing page without crashing 1`] = `
                 <button
                   className="submit-btn btn btn-primary btn-block"
                   disabled={true}
+                  style={
+                    Object {
+                      "color": "rgb(217, 217, 217, 0.4)",
+                    }
+                  }
                   type="submit"
                 >
-                  Submit
+                  ¡A Programar!
                 </button>
               </form>
             </div>
