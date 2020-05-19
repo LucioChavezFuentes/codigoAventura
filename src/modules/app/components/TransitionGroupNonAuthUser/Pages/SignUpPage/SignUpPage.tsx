@@ -16,6 +16,11 @@ const microMobile = 318;
 
 const useStyles = makeStyles((theme:Theme) => 
     createStyles({
+
+        'MuiPaper-root': {
+            backgroundColor: 'hsla(240, 20%, 70%, 1)'
+        },
+
         greeting: {
             width: '70%',
             margin: '0 auto',

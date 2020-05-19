@@ -73,6 +73,10 @@ createStyles({
 
         },
 
+        '& .cualquiera' : {
+            color: '#0099ff'
+        },
+
         '& .greeting-2': {
             margin: '1rem 0',
 
@@ -182,7 +186,12 @@ const LandingPage = () => {
                 <Paper elevation={10} className={classes.landingPaper}>
                     <CardContent className={classes.greetings}>
                         <Typography variant='h3' className='greeting-1'>
-                            !Cualquiera puede programar!                      
+                            Aprende a programar con Código Aventura
+                                                 
+                        </Typography >
+                            
+                        <Typography variant='h3'>
+                            ¡<span className='cualquiera'>Cualquiera</span> puede programar! 
                         </Typography>
 
                         <Typography variant='h5' className='greeting-2'>
@@ -209,6 +218,10 @@ const LandingPage = () => {
                      <SignUpForm />  
 
                 </div>
+            </div>
+
+            <div>
+               
             </div>
         </div>
     )

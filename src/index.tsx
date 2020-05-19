@@ -16,7 +16,14 @@ const theme = createMuiTheme({
         secondary: {
             main: '#e65c00'
         },
-      }
+      },
+    overrides: {
+        /*MuiPaper: {
+            root: {
+                backgroundColor: 'hsla(240, 20%, 70%, 1)'
+            }
+        }*/
+    }
 })
 
 // tslint:disable-next-line: jsx-wrap-multiline
