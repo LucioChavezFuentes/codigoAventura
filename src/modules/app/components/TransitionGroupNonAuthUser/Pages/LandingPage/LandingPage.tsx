@@ -73,6 +73,20 @@ createStyles({
 
         },
 
+        '& .greeting-15': {
+            [theme.breakpoints.only('sm')]: { 
+                fontSize: '1.9rem',
+            },
+
+            [theme.breakpoints.down('xs')]: { 
+                fontSize: '1.27rem',
+            },
+
+            [theme.breakpoints.down(microMobile)]: { 
+                fontSize: '1rem',
+            },
+        },
+
         '& .cualquiera' : {
             color: '#0099ff'
         },
@@ -190,7 +204,7 @@ const LandingPage = () => {
                                                  
                         </Typography >
                             
-                        <Typography variant='h3'>
+                        <Typography variant='h3' className='greeting-15'>
                             ¡<span className='cualquiera'>Cualquiera</span> puede programar! 
                         </Typography>
 
