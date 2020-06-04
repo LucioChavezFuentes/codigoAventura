@@ -169,14 +169,14 @@ const HomePage: React.FC<Props> = (props) => {
         }
       } 
     }
-
+//this is an IIFE
     (function(){
       var oldLog = console.log;
       console.log = function (message: string) {
           //TODO: If multiple console logs are written make sure all of them appear.
           setLogValue(message);
           //@ts-ignore
-          oldLog.apply(console, arguments);
+          oldLog.apply(this, arguments);
       };
   })();
 
