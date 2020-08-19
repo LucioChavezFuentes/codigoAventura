@@ -20,14 +20,15 @@ createStyles({
 
     landingContent: {
 
-        position: 'relative',
-        top: '5rem',
+        //position: 'relative',
+        //top: '5rem',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         //margin: '0 10rem',
         padding: '0 2rem',
         alignItems: 'flex-start',
+        marginTop: '5rem',
 
         [theme.breakpoints.down('sm')]: { 
             padding: '0 1rem'
