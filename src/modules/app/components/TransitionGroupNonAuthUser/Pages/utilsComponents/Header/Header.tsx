@@ -6,11 +6,8 @@ import * as ROUTES from '../../../constants/routes';
 //Material-UI Imports
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { createStyles, makeStyles, Theme, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import MUILink from '@material-ui/core/Link' 
-import { purple } from '@material-ui/core/colors';
 
 //React Router Dom
 import {Link, withRouter, RouteComponentProps } from 'react-router-dom';

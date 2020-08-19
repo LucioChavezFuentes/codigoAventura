@@ -5,9 +5,6 @@ import './SignInForm.scss'
 import Firebase, { withFirebase } from '../../utils/firebaseApp'
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-//Material UI
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-
 //TODO: make a dir of all interfaces needed in typescript.
 interface Props extends RouteComponentProps {
 	Firebase: Firebase | null
@@ -33,19 +30,6 @@ const initialState = {
 	error: null,
 	loading: false
 }
-
-const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
-		formComponent: {
-			width: '23rem',
-    		margin: '0 auto',
-
-			[theme.breakpoints.down('xs')]: {
-				width: '1rem'
-			} 
-		}
-	})
-)
 
 class SignInFormBase extends React.Component<Props, State>  {
 
