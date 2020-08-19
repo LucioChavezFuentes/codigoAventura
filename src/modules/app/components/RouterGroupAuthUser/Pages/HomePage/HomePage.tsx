@@ -157,17 +157,18 @@ const HomePage: React.FC<Props> = (props) => {
       setCode(newValue); 
     }
 
-    function handleClick() {
+    function handleClick(event : React.SyntheticEvent) {
+      event.preventDefault();
       props.Firebase.user(props.authUser.uid).update({code})
       //TODO: Find a safer way than eval to render code.
       try{
         eval(code)
 
-      } catch(e)  {
+      } catch(e) {
         if (e instanceof SyntaxError) {
           alert(e.message);
         }
-      } 
+      }
     }
 //this is an IIFE
     (function(){
