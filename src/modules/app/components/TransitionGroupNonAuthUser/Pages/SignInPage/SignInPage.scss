@@ -17,6 +17,10 @@
     position: relative;
     top: 2rem;
     font-size: 1.1rem;
-    
-    
 }
+
+@media (max-width: 600px) {
+    .signIn-page {
+        padding: 25px;
+    }
+  }

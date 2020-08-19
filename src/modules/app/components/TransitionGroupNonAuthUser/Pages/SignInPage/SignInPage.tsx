@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme:Theme) =>
             margin: '0 auto',
 
             [theme.breakpoints.down('xs')]: { 
-                width: '80%',
+                width: '90%',
               }
           
         },
